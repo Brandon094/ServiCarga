@@ -1,0 +1,86 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0;
+}
+
+.banner img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.title h1 {
+    font-family: "Caesar Dressing", cursive;
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.text {
+    text-align: center;
+    max-width: 600px;
+    margin-bottom: 30px;
+}
+
+.text-01 {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+.text-02 {
+    font-size: 1.1rem;
+    color: #666;
+}
+
+.list-contact h2 {
+    font-family: "Caesar Dressing", cursive;
+    font-size: 1.5rem;
+    color: #333;
+    text-align: center;
+    margin: 5%;
+}
+
+.container-contact {
+    display: flex;
+    gap: 10px;
+    columns: 3;
+}
+
+.container-contact h3 {
+    font-family: "Caesar Dressing", cursive;
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.content-motocarros ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.content-tuktuk ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.content-camionetas ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Footer */
+footer {
+    margin-top: 40px;
+    text-align: center;
+    color: #777;
+}
