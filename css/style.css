@@ -487,3 +487,109 @@ body {
 .adsbygoogle[data-ad-status="unfilled"] {
     display: none !important;
 }
+
+/* ========== ESTILOS PARA PUBLICIDAD LOCAL ========== */
+
+/* Tarjeta de publicidad local */
+.local-ad-card {
+    background: white;
+    border-radius: 16px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: var(--shadow-soft);
+    transition: all 0.3s ease;
+    margin: 20px 0;
+}
+
+.local-ad-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-strong);
+}
+
+.local-ad-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px auto;
+}
+
+.local-ad-icon i {
+    font-size: 2rem;
+    color: white;
+}
+
+.local-ad-content h3 {
+    font-size: 1.5rem;
+    color: var(--text-main);
+    margin-bottom: 10px;
+}
+
+.local-ad-content p {
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    font-size: 1rem;
+}
+
+.local-ad-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+.local-ad-note {
+    font-size: 0.8rem;
+    color: #f59e0b !important;
+    margin-top: 15px;
+}
+
+/* Tarjeta pequeña */
+.local-ad-card-small {
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.98);
+}
+
+.local-ad-card-small h4 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    color: var(--text-main);
+}
+
+.local-ad-card-small p {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .local-ad-card {
+        padding: 20px;
+    }
+    
+    .local-ad-content h3 {
+        font-size: 1.2rem;
+    }
+    
+    .local-ad-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .local-ad-buttons .btn {
+        width: 100%;
+    }
+    
+    .local-ad-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .local-ad-icon i {
+        font-size: 1.5rem;
+    }
+}
