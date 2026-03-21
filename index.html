@@ -4,57 +4,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Plataforma digital que conecta a la comunidad de Nátaga con conductores de transporte de carga y acarreos">
     <link rel="stylesheet" href="css/style.css">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Bitcount+Prop+Double+Ink:wght@100..900&family=Caesar+Dressing&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Caesar+Dressing&family=Inter:wght@400;500;600;700&display=swap"
         rel="stylesheet">
-    <title>ServiCarga - Nátaga</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>ServiCarga - Nátaga | Transporte de carga y acarreos</title>
 </head>
 
 <body>
-    <div class="container">
+    <!-- Header con Banner -->
+    <header class="main-header">
         <div class="banner">
-            <img src="/img/banner.jpeg" alt="Banner de ServiCarga - Nátaga">
+            <img src="/img/banner.jpeg" alt="ServiCarga - Transporte en Nátaga" loading="eager">
         </div>
-        <div class="text">
-            <p class="text-01"><span>Bienvenido a ServiCarga - Nátaga</span></p><br>
-            <p class="text-02">Es una plataforma digital que conecta a la comunidad de Nátaga con conductores de trasporte de
-                carga y acarreos, centralizando la informacion de contacto para facilitar la contratacion rapida y
-                segura de estos servicios locales</p>
-        </div>
-        <div class="list-contact">
-            <h2>Conductores disponibles en Nátaga</h2>
-            <div class="container-contact">
-                <div class="content-motocarros">
-                    <h3>Motocarros</h3>
-                    <ul>
-                        <li><strong>Juan Pérez:</strong> Motocarro - <a href="http://wa.me/523332221111" target="_blank">123-456-7890</a></li>
-                        <li><strong>María Gómez:</strong> Motocarro - <a href="http://wa.me/520987654321" target="_blank">098-765-4321</a></li>
-                    </ul>
-                </div>
-                <div class="content-tuktuk">
-                    <h3>Tuktuk</h3>
-                    <ul>
-                        <li><strong>Luis Hernández:</strong> Tuktuk - Tel: <a href="http://wa.me/523332221111" target="_blank">333-222-1111</a></li>
-                        <li><strong>Sofía López:</strong> Tuktuk - Tel: <a href="http://wa.me/52223334444" target="_blank">222-333-4444</a></li>
-                    </ul>
-                </div>
-                <div class="content-camionetas">
-                    <h3>Camionetas</h3>
-                    <ul>
-                        <li><strong>Pedro Sánchez:</strong> Camioneta - <a href="http://wa.me/523332221111" target="_blank">322-111-1111</a></li>
-                        <li><strong>Laura Torres:</strong> Camioneta - <a href="http://wa.me/526665554444" target="_blank">666-555-4444</a></li>
-                    </ul>
+    </header>
+
+    <main>
+        <!-- Sección de bienvenida -->
+        <section class="welcome-section">
+            <div class="container">
+                <div class="text-card">
+                    <h1 class="welcome-title">Bienvenido a ServiCarga - Nátaga</h1>
+                    <p class="welcome-description">
+                        Es una plataforma digital que conecta a la comunidad de Nátaga con conductores de
+                        transporte de carga y acarreos, centralizando la información de contacto para facilitar
+                        la contratación rápida y segura de estos servicios locales.
+                    </p>
                 </div>
             </div>
+        </section>
+
+        <!-- Sección de conductores por categoría -->
+        <section class="drivers-section">
+            <div class="container">
+                <div id="drivers-container">
+                    <!-- Los conductores se cargarán dinámicamente aquí -->
+                    <div class="loading-spinner">
+                        <i class="fas fa-truck-fast fa-3x"></i>
+                        <p>Cargando conductores disponibles...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <p>&copy; <span id="current-year"></span> ServiCarga - Nátaga. Todos los derechos reservados.</p>
+            <p class="footer-tagline">Conectando tu carga con los mejores conductores</p>
+            <p class="footer-credits">
+                Powered by: <a href="https://porfolio-chop-code-solutions-brando.vercel.app/" target="_blank" rel="noopener noreferrer"
+                    class="credit-link">ChopCode</a>
+            </p>
         </div>
-    </div>
-    <footer>
-        <p>&copy; 2023 ServiCarga - Nátaga. Todos los derechos reservados.</p>
     </footer>
+    <script type="module" src="js/index.js"></script>
 </body>
 
 </html>

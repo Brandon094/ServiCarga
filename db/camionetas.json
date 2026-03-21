@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "name": "John Doe",
+        "phone": "123-456-7890",
+        "vehicle": "camioneta"
+    },
+    {
+        "id": 2,
+        "name": "Jane Smith",
+        "phone": "098-765-4321",
+        "vehicle": "camioneta"
+    },
+    {
+        "id": 3,
+        "name": "Alice Johnson",
+        "phone": "555-123-4567",
+        "vehicle": "camioneta"
+    },
+    {
+        "id": 4,
+        "name": "Bob Brown",
+        "phone": "555-987-6543",
+        "vehicle": "camioneta"
+    }
+]
