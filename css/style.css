@@ -977,6 +977,7 @@ body.dark-theme .anuncio-card {
 
 body.dark-theme .contact-card h3 {
     border-bottom-color: var(--border-color);
+    color: var(--text-primary);
 }
 
 body.dark-theme .category-header i {
