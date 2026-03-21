@@ -423,3 +423,46 @@ body {
 .credit-link:hover::after {
     width: 100%;
 }
+
+/* ========== ESTILOS PARA ANUNCIOS NO INVASIVOS ========== */
+
+/* Contenedor de anuncios */
+.ad-container {
+    max-width: 1200px;
+    margin: 25px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+/* Estilo para los anuncios de AdSense */
+.adsbygoogle {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    min-height: 90px;
+}
+
+/* Aviso de publicidad */
+.ad-notice {
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.6);
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Responsive para anuncios */
+@media (max-width: 768px) {
+    .ad-container {
+        margin: 15px auto;
+        padding: 0 15px;
+    }
+    
+    .adsbygoogle {
+        min-height: 70px;
+    }
+}
+
+/* Para cuando los anuncios no cargan (fallback) */
+.adsbygoogle[data-ad-status="unfilled"] {
+    display: none !important;
+}

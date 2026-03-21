@@ -1,19 +1,19 @@
 [
     {
         "id": 1,
-        "name": "John Doe",
+        "name": "Andrez Zapata",
         "phone": "123-456-7890",
         "vehicle": "camioneta"
     },
     {
         "id": 2,
-        "name": "Jane Smith",
+        "name": "Juan Carlos Collazos",
         "phone": "098-765-4321",
         "vehicle": "camioneta"
     },
     {
         "id": 3,
-        "name": "Alice Johnson",
+        "name": "Rodier Arias",
         "phone": "555-123-4567",
         "vehicle": "camioneta"
     },
