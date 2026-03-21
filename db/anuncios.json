@@ -1,0 +1,112 @@
+[
+    {
+        "id": 1,
+        "name": "Tienda Don Pepe",
+        "category": "tienda",
+        "description": "Abarrotes, víveres, productos de primera necesidad. Despachos a domicilio en Nátaga.",
+        "phone": "3124567890",
+        "whatsapp": "3124567890",
+        "address": "Calle Principal #12-34, Nátaga",
+        "icon": "fa-store",
+        "featured": true
+    },
+    {
+        "id": 2,
+        "name": "Ferretería El Constructor",
+        "category": "ferreteria",
+        "description": "Materiales de construcción, herramientas, pinturas. Envíos de materiales a toda Nátaga.",
+        "phone": "3209876543",
+        "whatsapp": "3209876543",
+        "address": "Carrera 5 #8-20, Nátaga",
+        "icon": "fa-tools",
+        "featured": true
+    },
+    {
+        "id": 3,
+        "name": "Carnicería La Buena Carne",
+        "category": "carniceria",
+        "description": "Carnes de primera calidad, pollo, cerdo, res. Cortes especiales y domicilios.",
+        "phone": "3145678901",
+        "whatsapp": "3145678901",
+        "address": "Mercado Municipal, Local 5",
+        "icon": "fa-drumstick-bite",
+        "featured": false
+    },
+    {
+        "id": 4,
+        "name": "Panadería El Trigal",
+        "category": "panaderia",
+        "description": "Pan fresco todos los días, pasteles, galletas, tortas para toda ocasión.",
+        "phone": "3156789012",
+        "whatsapp": "3156789012",
+        "address": "Calle 7 #3-15, Nátaga",
+        "icon": "fa-bread-slice",
+        "featured": true
+    },
+    {
+        "id": 5,
+        "name": "Tienda de Abarroos La Economía",
+        "category": "tienda",
+        "description": "Abarrotes, licores, refrescos, productos de aseo. Los mejores precios.",
+        "phone": "3135678901",
+        "whatsapp": "3135678901",
+        "address": "Barrio Centro, Calle 4",
+        "icon": "fa-shopping-cart",
+        "featured": false
+    },
+    {
+        "id": 6,
+        "name": "Veterinaria Mis Patas",
+        "category": "veterinaria",
+        "description": "Atención veterinaria, vacunas, alimentos, accesorios para mascotas.",
+        "phone": "3223456789",
+        "whatsapp": "3223456789",
+        "address": "Carrera 8 #12-45, Nátaga",
+        "icon": "fa-paw",
+        "featured": false
+    },
+    {
+        "id": 7,
+        "name": "Papelería El Estudiante",
+        "category": "papeleria",
+        "description": "Útiles escolares, artículos de oficina, impresiones, fotocopias.",
+        "phone": "3167890123",
+        "whatsapp": "3167890123",
+        "address": "Calle 10 #5-22, Nátaga",
+        "icon": "fa-book",
+        "featured": false
+    },
+    {
+        "id": 8,
+        "name": "Restaurante El Sabor Natagueño",
+        "category": "restaurante",
+        "description": "Comida típica colombiana, almuerzos ejecutivos, domicilios.",
+        "phone": "3101234567",
+        "whatsapp": "3101234567",
+        "address": "Parque Principal, Nátaga",
+        "icon": "fa-utensils",
+        "featured": true
+    },
+    {
+        "id": 9,
+        "name": "Taller Mecánico El Motor",
+        "category": "taller",
+        "description": "Mantenimiento y reparación de motos, camionetas y tuktuks.",
+        "phone": "3214567890",
+        "whatsapp": "3214567890",
+        "address": "Vía Principal, Sector El Puente",
+        "icon": "fa-wrench",
+        "featured": true
+    },
+    {
+        "id": 10,
+        "name": "Frutas y Verduras La Cosecha",
+        "category": "verduleria",
+        "description": "Frutas y verduras frescas directamente del campo a tu casa.",
+        "phone": "3187654321",
+        "whatsapp": "3187654321",
+        "address": "Plaza de Mercado, Puesto 12",
+        "icon": "fa-apple-alt",
+        "featured": false
+    }
+]

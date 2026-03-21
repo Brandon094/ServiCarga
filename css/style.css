@@ -1,18 +1,62 @@
+/* ========== VARIABLES GLOBALES MEJORADAS ========== */
 :root {
+    /* === COLORES PRINCIPALES (coherentes con el gradiente) === */
+    --primary-600: #5a67d8;      /* Base primary (azul) */
+    --primary-700: #4c51bf;      /* Hover primary */
+    --secondary-600: #764ba2;    /* Color secundario del gradiente (morado) */
+    
+    /* === GRADIENTES === */
     --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    --glass-bg: rgba(255, 255, 255, 0.95);
-    --glass-bg-dark: rgba(255, 255, 255, 0.98);
-    --text-main: #2d3436;
-    --text-muted: #636e72;
-    --primary-color: #5a67d8;
-    --primary-hover: #4c51bf;
-    --success-color: #25D366;
-    --shadow-soft: 0 4px 15px rgba(0, 0, 0, 0.1);
-    --shadow-strong: 0 8px 25px rgba(0, 0, 0, 0.15);
-    --radius: 12px;
+    --primary-gradient-hover: linear-gradient(135deg, #5a67d8 0%, #633a86 100%);
+    
+    /* === FONDOS Y SUPERFICIES === */
+    --bg-glass: rgba(255, 255, 255, 0.95);
+    --bg-glass-dark: rgba(255, 255, 255, 0.98);
+    --bg-surface: #ffffff;
+    
+    /* === TEXTOS (mejor contraste WCAG) === */
+    --text-primary: #1a202c;      /* Texto principal - más oscuro para mejor contraste */
+    --text-secondary: #4a5568;    /* Texto secundario */
+    --text-muted: #718096;        /* Texto deshabilitado/muted - mejor contraste que #636e72 */
+    
+    /* === COLORES DE ESTADO === */
+    --success: #25D366;
+    --success-dark: #128C7E;
+    --warning: #f59e0b;
+    --error: #ef4444;
+    --info: #3b82f6;
+    
+    /* === SOMBRAS (jerarquía visual) === */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    
+    /* === BORDES === */
     --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-full: 9999px;
+    
+    /* === TRANSICIONES === */
+    --transition-fast: 150ms ease;
+    --transition-base: 300ms ease;
+    --transition-slow: 500ms ease;
+    
+    /* === ALIAS (para mantener compatibilidad con código existente) === */
+    --glass-bg: var(--bg-glass);
+    --glass-bg-dark: var(--bg-glass-dark);
+    --text-main: var(--text-primary);
+    --primary-color: var(--primary-600);
+    --primary-hover: var(--primary-700);
+    --success-color: var(--success);
+    --shadow-soft: var(--shadow-md);
+    --shadow-strong: var(--shadow-lg);
+    --radius: var(--radius-md);
+    --transition: var(--transition-base);
 }
 
+/* ========== RESET Y BASE ========== */
 * {
     margin: 0;
     padding: 0;
@@ -41,7 +85,7 @@ body {
     padding: 0 20px;
 }
 
-/* Header y Banner */
+/* ========== HEADER & BANNER ========== */
 .main-header {
     width: 100%;
 }
@@ -53,6 +97,18 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    position: relative;
+}
+
+.banner::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.4));
+    pointer-events: none;
 }
 
 .banner img {
@@ -62,7 +118,7 @@ body {
     display: block;
 }
 
-/* Sección de bienvenida */
+/* ========== SECCIÓN DE BIENVENIDA ========== */
 .welcome-section {
     margin: 40px 0;
 }
@@ -73,7 +129,8 @@ body {
     padding: 40px;
     box-shadow: var(--shadow-soft);
     text-align: center;
-    transition: transform 0.3s ease;
+    transition: var(--transition);
+    backdrop-filter: blur(2px);
 }
 
 .text-card:hover {
@@ -84,25 +141,27 @@ body {
 .welcome-title {
     font-family: "Caesar Dressing", cursive;
     font-size: clamp(1.8rem, 5vw, 2.5rem);
-    color: var(--primary-color);
+    background: var(--primary-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
     margin-bottom: 20px;
     font-weight: 600;
 }
 
 .welcome-description {
     font-size: 1.1rem;
-    color: var(--text-muted);
+    color: var(--text-secondary);
     max-width: 800px;
     margin: 0 auto;
     line-height: 1.8;
 }
 
-/* Sección de conductores */
+/* ========== SECCIÓN DE CONDUCTORES ========== */
 .drivers-section {
     margin: 40px 0 60px;
 }
 
-/* Categorías */
 .driver-category {
     margin-bottom: 50px;
 }
@@ -122,6 +181,12 @@ body {
     background: rgba(0, 0, 0, 0.3);
     padding: 12px;
     border-radius: 50%;
+    transition: var(--transition-fast);
+}
+
+.category-header:hover i {
+    transform: scale(1.05);
+    background: rgba(0, 0, 0, 0.4);
 }
 
 .category-header h2 {
@@ -134,8 +199,9 @@ body {
 
 .category-count {
     background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(4px);
     padding: 4px 12px;
-    border-radius: 20px;
+    border-radius: var(--radius-full);
     font-size: 0.9rem;
     color: white;
     font-weight: 600;
@@ -148,16 +214,17 @@ body {
     gap: 25px;
 }
 
-/* Tarjetas de contacto */
+/* ========== TARJETAS DE CONTACTO ========== */
 .contact-card {
-    background: var(--glass-bg-dark);
+    background: var(--bg-surface);
     border-radius: var(--radius);
     padding: 25px;
     box-shadow: var(--shadow-soft);
-    transition: all 0.3s ease;
+    transition: var(--transition);
     animation: fadeInUp 0.5s ease-out forwards;
     position: relative;
     overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .contact-card::before {
@@ -167,9 +234,10 @@ body {
     left: 0;
     width: 100%;
     height: 4px;
-    background: linear-gradient(90deg, var(--primary-color), #764ba2);
+    background: var(--primary-gradient);
     transform: scaleX(0);
-    transition: transform 0.3s ease;
+    transition: transform var(--transition-base);
+    transform-origin: left;
 }
 
 .contact-card:hover::before {
@@ -179,6 +247,7 @@ body {
 .contact-card:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-strong);
+    border-color: rgba(90, 103, 216, 0.2);
 }
 
 .contact-card h3 {
@@ -188,17 +257,18 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 2px solid #e2e8f0;
+    border-bottom: 2px solid var(--color-gray-200, #e2e8f0);
     padding-bottom: 12px;
 }
 
 .vehicle-badge {
     font-size: 0.85rem;
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    background: var(--primary-gradient);
     color: white;
     padding: 4px 12px;
-    border-radius: 20px;
+    border-radius: var(--radius-full);
     font-weight: 500;
+    box-shadow: var(--shadow-sm);
 }
 
 .contact-info {
@@ -213,15 +283,18 @@ body {
     align-items: center;
     gap: 12px;
     font-size: 0.95rem;
+    color: var(--text-secondary);
 }
 
 .contact-info i {
     width: 30px;
     font-size: 1.2rem;
+    color: var(--primary-color);
+    transition: var(--transition-fast);
 }
 
-.contact-info i.fa-phone {
-    color: var(--primary-color);
+.contact-info p:hover i {
+    transform: scale(1.1);
 }
 
 .contact-info i.fa-whatsapp {
@@ -234,6 +307,7 @@ body {
     margin-top: 10px;
 }
 
+/* ========== BOTONES ========== */
 .btn {
     flex: 1;
     display: inline-flex;
@@ -244,19 +318,41 @@ body {
     border-radius: var(--radius-sm);
     text-decoration: none;
     font-weight: 600;
-    transition: all 0.3s ease;
+    transition: var(--transition);
     border: none;
     cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn:active::before {
+    width: 300px;
+    height: 300px;
 }
 
 .btn-call {
     background: var(--primary-color);
     color: white;
+    box-shadow: var(--shadow-sm);
 }
 
 .btn-call:hover {
     background: var(--primary-hover);
-    transform: scale(1.02);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
 }
 
 .btn-whatsapp {
@@ -265,11 +361,12 @@ body {
 }
 
 .btn-whatsapp:hover {
-    background: #128C7E;
-    transform: scale(1.02);
+    background: var(--success-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
 }
 
-/* Loading spinner */
+/* ========== LOADING SPINNER ========== */
 .loading-spinner {
     text-align: center;
     padding: 60px 20px;
@@ -286,16 +383,22 @@ body {
 }
 
 @keyframes spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }
 
-/* Footer */
+/* ========== FOOTER ========== */
 .main-footer {
     background: rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(10px);
     margin-top: auto;
     padding: 30px 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .footer-content {
@@ -315,83 +418,6 @@ body {
     opacity: 0.8;
 }
 
-/* Animaciones */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .container {
-        padding: 0 15px;
-    }
-    
-    .text-card {
-        padding: 25px;
-    }
-    
-    .welcome-title {
-        font-size: 1.8rem;
-    }
-    
-    .welcome-description {
-        font-size: 1rem;
-    }
-    
-    .category-header h2 {
-        font-size: 1.4rem;
-    }
-    
-    .drivers-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-    
-    .contact-card h3 {
-        font-size: 1.2rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .text-card {
-        padding: 20px;
-    }
-    
-    .contact-info p {
-        font-size: 0.9rem;
-    }
-    
-    .btn {
-        padding: 10px;
-        font-size: 0.9rem;
-    }
-}
-
-/* Mejoras de accesibilidad */
-@media (prefers-reduced-motion: reduce) {
-    * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-    }
-}
-
-/* Estilo para focus visible */
-.btn:focus-visible,
-.contact-card a:focus-visible {
-    outline: 2px solid var(--primary-color);
-    outline-offset: 2px;
-}
-
-/* Estilos para el crédito */
 .footer-credits {
     margin-top: 15px;
     font-size: 0.85rem;
@@ -402,7 +428,7 @@ body {
     color: #fff;
     text-decoration: none;
     font-weight: 600;
-    transition: all 0.3s ease;
+    transition: var(--transition);
     position: relative;
     display: inline-block;
 }
@@ -414,8 +440,8 @@ body {
     left: 0;
     width: 0;
     height: 2px;
-    background: linear-gradient(90deg, #fff, #667eea);
-    transition: width 0.3s ease;
+    background: var(--primary-gradient);
+    transition: width var(--transition-base);
 }
 
 .credit-link:hover {
@@ -427,9 +453,7 @@ body {
     width: 100%;
 }
 
-/* ========== ESTILOS PARA ANUNCIOS ========== */
-
-/* Contenedor de anuncios */
+/* ========== ANUNCIOS ADSENSE ========== */
 .ad-container {
     max-width: 1200px;
     margin: 25px auto;
@@ -438,27 +462,24 @@ body {
     position: relative;
 }
 
-/* Estilo para los anuncios de AdSense */
 .adsbygoogle {
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    background: var(--bg-glass);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-soft);
     min-height: 90px;
 }
 
-/* Badge de modo prueba */
 .ad-test-badge {
     font-size: 0.7rem;
-    color: #666;
-    background: #f0f0f0;
+    color: var(--text-muted);
+    background: var(--color-gray-200, #f0f0f0);
     display: inline-block;
     padding: 4px 12px;
-    border-radius: 20px;
+    border-radius: var(--radius-full);
     margin-top: 8px;
     text-align: center;
 }
 
-/* Aviso de publicidad */
 .ad-notice {
     font-size: 0.7rem;
     color: rgba(255, 255, 255, 0.6);
@@ -466,55 +487,43 @@ body {
     margin-top: 10px;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .ad-container {
-        margin: 15px auto;
-        padding: 0 15px;
-    }
-    
-    .adsbygoogle {
-        min-height: 70px;
-    }
-    
-    .ad-test-badge {
-        font-size: 0.6rem;
-        padding: 2px 8px;
-    }
-}
-
-/* Fallback cuando no cargan anuncios */
 .adsbygoogle[data-ad-status="unfilled"] {
     display: none !important;
 }
 
-/* ========== ESTILOS PARA PUBLICIDAD LOCAL ========== */
-
-/* Tarjeta de publicidad local */
+/* ========== PUBLICIDAD LOCAL ========== */
 .local-ad-card {
-    background: white;
-    border-radius: 16px;
+    background: var(--bg-surface);
+    border-radius: var(--radius-lg);
     padding: 30px;
     text-align: center;
     box-shadow: var(--shadow-soft);
-    transition: all 0.3s ease;
+    transition: var(--transition);
     margin: 20px 0;
+    border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .local-ad-card:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-strong);
+    border-color: rgba(90, 103, 216, 0.2);
 }
 
 .local-ad-icon {
     width: 70px;
     height: 70px;
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    background: var(--primary-gradient);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto 20px auto;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-fast);
+}
+
+.local-ad-card:hover .local-ad-icon {
+    transform: scale(1.05);
 }
 
 .local-ad-icon i {
@@ -524,12 +533,12 @@ body {
 
 .local-ad-content h3 {
     font-size: 1.5rem;
-    color: var(--text-main);
+    color: var(--text-primary);
     margin-bottom: 10px;
 }
 
 .local-ad-content p {
-    color: var(--text-muted);
+    color: var(--text-secondary);
     margin-bottom: 20px;
     font-size: 1rem;
 }
@@ -544,52 +553,426 @@ body {
 
 .local-ad-note {
     font-size: 0.8rem;
-    color: #f59e0b !important;
+    color: var(--warning) !important;
     margin-top: 15px;
 }
 
-/* Tarjeta pequeña */
 .local-ad-card-small {
     padding: 20px;
-    background: rgba(255, 255, 255, 0.98);
+    background: var(--bg-glass-dark);
 }
 
 .local-ad-card-small h4 {
     font-size: 1.2rem;
     margin-bottom: 8px;
-    color: var(--text-main);
+    color: var(--text-primary);
 }
 
 .local-ad-card-small p {
     font-size: 0.9rem;
     margin-bottom: 15px;
+    color: var(--text-secondary);
 }
 
-/* Responsive */
+/* ========== ANUNCIOS LOCALES (CARRUSEL) ========== */
+.anuncios-titulo {
+    font-family: "Caesar Dressing", cursive;
+    font-size: 1.5rem;
+    color: white;
+    margin: 30px 0 20px 0;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.anuncios-titulo i {
+    color: var(--warning);
+}
+
+.anuncio-card {
+    background: var(--bg-surface);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.anuncio-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-strong);
+    border-color: rgba(90, 103, 216, 0.2);
+}
+
+.anuncio-header {
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid var(--color-gray-200, rgba(0, 0, 0, 0.05));
+}
+
+.anuncio-header i {
+    font-size: 1.5rem;
+    width: 35px;
+    text-align: center;
+    color: var(--primary-color);
+}
+
+.anuncio-category {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-muted);
+}
+
+.anuncio-body {
+    padding: 15px;
+    flex: 1;
+}
+
+.anuncio-body h3 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+}
+
+.anuncio-description {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+    margin-bottom: 10px;
+}
+
+.anuncio-address {
+    font-size: 0.8rem;
+    color: var(--success-color);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 8px;
+}
+
+.anuncio-address i {
+    color: var(--primary-color);
+    font-size: 0.7rem;
+}
+
+.anuncio-footer {
+    padding: 12px 15px;
+    border-top: 1px solid var(--color-gray-200, #e2e8f0);
+    display: flex;
+    gap: 10px;
+}
+
+.anuncio-btn {
+    flex: 1;
+    padding: 8px;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+/* ========== CARRUSEL ========== */
+.anuncios-carousel-container {
+    position: relative;
+    margin: 20px 0 40px;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+}
+
+.anuncios-carousel-track {
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+}
+
+.anuncios-carousel-slides {
+    display: flex;
+    transition: transform var(--transition-base);
+}
+
+.carousel-slide {
+    flex: 0 0 100%;
+    display: flex;
+    gap: 5%;
+    padding: 2% 5%;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background: var(--bg-glass);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    transition: var(--transition);
+    z-index: 10;
+    box-shadow: var(--shadow-soft);
+}
+
+.carousel-btn:hover {
+    background: var(--bg-surface);
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: var(--shadow-strong);
+}
+
+.carousel-prev {
+    left: 0%;
+}
+
+.carousel-next {
+    right: 0%;
+}
+
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+.carousel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+    padding: 0;
+}
+
+.carousel-dot:hover {
+    background: rgba(255, 255, 255, 0.8);
+    transform: scale(1.2);
+}
+
+.carousel-dot.active {
+    width: 25px;
+    border-radius: 5px;
+    background: white;
+}
+
+.anuncios-carousel-container .anuncio-card {
+    flex: 1;
+    min-width: 0;
+    margin: 0;
+}
+
+/* ========== ANIMACIONES ========== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.carousel-slide .anuncio-card {
+    animation: slideIn var(--transition-base) ease-out;
+}
+
+/* ========== ACCESIBILIDAD ========== */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+.btn:focus-visible,
+.contact-card a:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* ========== MEDIA QUERIES AGRUPADAS ========== */
+
+/* Tablet y móviles grandes (max-width: 768px) */
 @media (max-width: 768px) {
+
+    /* Contenedor */
+    .container {
+        padding: 0 15px;
+    }
+
+    /* Bienvenida */
+    .text-card {
+        padding: 25px;
+    }
+
+    .welcome-title {
+        font-size: 1.8rem;
+    }
+
+    .welcome-description {
+        font-size: 1rem;
+    }
+
+    /* Conductores */
+    .category-header h2 {
+        font-size: 1.4rem;
+    }
+
+    .drivers-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .contact-card h3 {
+        font-size: 1.2rem;
+    }
+
+    /* Anuncios AdSense */
+    .ad-container {
+        margin: 15px auto;
+        padding: 0 15px;
+    }
+
+    .adsbygoogle {
+        min-height: 70px;
+    }
+
+    .ad-test-badge {
+        font-size: 0.6rem;
+        padding: 2px 8px;
+    }
+
+    /* Publicidad local */
     .local-ad-card {
         padding: 20px;
     }
-    
+
     .local-ad-content h3 {
         font-size: 1.2rem;
     }
-    
+
     .local-ad-buttons {
         flex-direction: column;
         gap: 10px;
     }
-    
+
     .local-ad-buttons .btn {
         width: 100%;
     }
-    
+
     .local-ad-icon {
         width: 50px;
         height: 50px;
     }
-    
+
     .local-ad-icon i {
         font-size: 1.5rem;
+    }
+
+    /* Anuncios locales */
+    .anuncios-titulo {
+        font-size: 1.2rem;
+    }
+
+    /* Carrusel */
+    .carousel-slide {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .carousel-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+
+    .carousel-prev {
+        left: 5px;
+    }
+
+    .carousel-next {
+        right: 5px;
+    }
+
+    .carousel-dot.active {
+        width: 20px;
+    }
+}
+
+/* Móviles pequeños (max-width: 480px) */
+@media (max-width: 480px) {
+    .text-card {
+        padding: 20px;
+    }
+
+    .contact-info p {
+        font-size: 0.9rem;
+    }
+
+    .btn {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Tablets (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .carousel-slide {
+        gap: 15px;
+    }
+}
+
+/* Modo oscuro preferido (mejorado) */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-glass: rgba(0, 0, 0, 0.85);
+        --bg-glass-dark: rgba(0, 0, 0, 0.9);
+        --bg-surface: rgba(30, 30, 40, 0.95);
+        --text-primary: #f5f5f5;
+        --text-secondary: #e0e0e0;
+        --text-muted: #b0b0b0;
+    }
+    
+    .contact-card,
+    .local-ad-card,
+    .anuncio-card {
+        border-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    .category-header i {
+        background: rgba(0, 0, 0, 0.5);
+    }
+    
+    .ad-test-badge {
+        background: rgba(255, 255, 255, 0.1);
+        color: var(--text-muted);
     }
 }

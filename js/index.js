@@ -2,6 +2,7 @@
 import { categories } from './modules/config.js';
 import { loadAllCategories } from './modules/dataLoader.js';
 import { createCategorySection, showLoading, showError, showEmpty } from './modules/ui.js';
+import { renderAnunciosDestacados } from './modules/anuncios.js';
 
 // Función principal para cargar todos los datos
 async function loadAllDrivers() {
@@ -45,6 +46,37 @@ async function loadAllDrivers() {
     }
 }
 
+// Función para crear el contenedor de anuncios destacados
+function createAnunciosContainer() {
+    const anunciosContainer = document.createElement('div');
+    anunciosContainer.className = 'container';
+    anunciosContainer.id = 'anuncios-destacados-container';
+    return anunciosContainer;
+}
+
+// Función para insertar el contenedor de anuncios después de la bienvenida
+function insertAnunciosContainer() {
+    const welcomeSection = document.querySelector('.welcome-section');
+    const existingContainer = document.getElementById('anuncios-destacados-container');
+    
+    // Si ya existe el contenedor, no lo creamos de nuevo
+    if (existingContainer) return existingContainer;
+    
+    const anunciosContainer = createAnunciosContainer();
+    
+    if (welcomeSection) {
+        welcomeSection.insertAdjacentElement('afterend', anunciosContainer);
+    } else {
+        // Fallback: insertar antes de los conductores
+        const driversSection = document.querySelector('.drivers-section');
+        if (driversSection) {
+            driversSection.insertAdjacentElement('beforebegin', anunciosContainer);
+        }
+    }
+    
+    return anunciosContainer;
+}
+
 // Actualizar el año en el footer
 function updateCurrentYear() {
     const yearSpan = document.getElementById('current-year');
@@ -54,10 +86,25 @@ function updateCurrentYear() {
 }
 
 // Inicializar cuando el DOM esté listo
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+    // Actualizar el año en el footer
     updateCurrentYear();
-    loadAllDrivers();
+    
+    // Cargar conductores
+    await loadAllDrivers();
+    
+    // Crear e insertar contenedor de anuncios
+    const anunciosContainer = insertAnunciosContainer();
+    
+    // Renderizar anuncios destacados
+    await renderAnunciosDestacados(anunciosContainer);
+    
+    console.log('✅ ServiCarga inicializado correctamente');
 });
 
 // Exportar funciones para uso global (opcional)
 window.loadAllDrivers = loadAllDrivers;
+window.ServiCarga = {
+    loadAllDrivers,
+    updateCurrentYear
+};
