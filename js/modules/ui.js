@@ -27,7 +27,7 @@ export function createCategorySection(categoryData) {
         const card = createContactCard(
             driver, 
             categoryData.category.vehicleType,
-            categoryData.category.vehicleIcon  // ← Pasa el ícono de la categoría
+            categoryData.category.vehicleIcon
         );
         grid.appendChild(card);
     });
@@ -71,4 +71,50 @@ export function showEmpty(container) {
             <p style="font-size: 0.9rem; margin-top: 10px;">Por favor, vuelve a intentar más tarde</p>
         </div>
     `;
+}
+
+// ========== FUNCIÓN DE TEMA MEJORADA ==========
+/**
+ * Cambia el tema entre claro y oscuro
+ */
+export function toggleTheme() {
+    const body = document.body;
+    const isDark = body.classList.contains('dark-theme');
+    
+    if (isDark) {
+        body.classList.remove('dark-theme');
+        localStorage.setItem('theme', 'light');
+        updateThemeUI(false);
+    } else {
+        body.classList.add('dark-theme');
+        localStorage.setItem('theme', 'dark');
+        updateThemeUI(true);
+    }
+}
+
+/**
+ * Actualiza la interfaz del switch según el tema
+ */
+function updateThemeUI(isDark) {
+    const themeCheckbox = document.getElementById('theme-toggle');
+    const themeButton = document.getElementById('theme-button');
+    
+    // Actualizar checkbox si existe
+    if (themeCheckbox) {
+        themeCheckbox.checked = isDark;
+    }
+    
+    // Actualizar botón simple si existe
+    if (themeButton) {
+        const icon = themeButton.querySelector('i');
+        const span = themeButton.querySelector('span');
+        
+        if (isDark) {
+            if (icon) icon.className = 'fas fa-sun';
+            if (span) span.textContent = 'Modo claro';
+        } else {
+            if (icon) icon.className = 'fas fa-moon';
+            if (span) span.textContent = 'Modo oscuro';
+        }
+    }
 }

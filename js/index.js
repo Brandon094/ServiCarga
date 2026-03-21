@@ -4,6 +4,123 @@ import { loadAllCategories } from './modules/dataLoader.js';
 import { createCategorySection, showLoading, showError, showEmpty } from './modules/ui.js';
 import { renderAnunciosDestacados } from './modules/anuncios.js';
 
+// ========== FUNCIONES DE TEMA ==========
+
+/**
+ * Cambia el tema entre claro y oscuro
+ */
+export function toggleTheme() {
+    const body = document.body;
+    const isDark = body.classList.contains('dark-theme');
+    
+    if (isDark) {
+        body.classList.remove('dark-theme');
+        localStorage.setItem('theme', 'light');
+        updateThemeButton(false);
+    } else {
+        body.classList.add('dark-theme');
+        localStorage.setItem('theme', 'dark');
+        updateThemeButton(true);
+    }
+    
+    // Disparar evento personalizado para notificar a otros componentes
+    window.dispatchEvent(new CustomEvent('themeChanged', { 
+        detail: { isDark: !isDark } 
+    }));
+}
+
+/**
+ * Actualiza el ícono y texto del botón según el tema actual
+ */
+function updateThemeButton(isDark) {
+    const themeButton = document.getElementById('theme-button');
+    const themeCheckbox = document.getElementById('theme-toggle');
+    
+    if (themeButton) {
+        const icon = themeButton.querySelector('i');
+        const span = themeButton.querySelector('span');
+        
+        if (isDark) {
+            if (icon) icon.className = 'fas fa-sun';
+            if (span) span.textContent = 'Modo claro';
+        } else {
+            if (icon) icon.className = 'fas fa-moon';
+            if (span) span.textContent = 'Modo oscuro';
+        }
+    }
+    
+    if (themeCheckbox) {
+        themeCheckbox.checked = isDark;
+    }
+}
+
+/**
+ * Inicializa el tema basado en preferencias guardadas o del sistema
+ */
+export function initTheme() {
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    // Determinar el tema inicial
+    const isDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
+    
+    if (isDark) {
+        document.body.classList.add('dark-theme');
+        updateThemeButton(true);
+    } else {
+        document.body.classList.remove('dark-theme');
+        updateThemeButton(false);
+    }
+    
+    // Escuchar cambios en preferencias del sistema
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        // Solo cambiar si no hay preferencia guardada
+        if (!localStorage.getItem('theme')) {
+            if (e.matches) {
+                document.body.classList.add('dark-theme');
+                updateThemeButton(true);
+            } else {
+                document.body.classList.remove('dark-theme');
+                updateThemeButton(false);
+            }
+        }
+    });
+}
+
+/**
+ * Crea e inserta el switch toggle de tema en la página
+ */
+export function createThemeButton() {
+    // Verificar si ya existe el switch
+    if (document.querySelector('#theme-button') || document.querySelector('.theme-switch-wrapper')) {
+        return;
+    }
+    
+    // Crear wrapper del switch
+    const wrapper = document.createElement('div');
+    wrapper.className = 'theme-switch-wrapper';
+    wrapper.innerHTML = `
+        <label class="theme-switch" for="theme-toggle">
+            <input type="checkbox" id="theme-toggle" />
+            <div class="slider round">
+                <i class="fas fa-sun"></i>
+                <i class="fas fa-moon"></i>
+            </div>
+        </label>
+        <span class="theme-label">Modo oscuro</span>
+    `;
+    
+    document.body.appendChild(wrapper);
+    
+    const checkbox = document.getElementById('theme-toggle');
+    if (checkbox) {
+        // IMPORTANTE: Usar la función toggleTheme de este archivo
+        checkbox.addEventListener('change', () => toggleTheme());
+    }
+}
+
+// ========== FUNCIONES PRINCIPALES ==========
+
 // Función principal para cargar todos los datos
 async function loadAllDrivers() {
     const container = document.getElementById('drivers-container');
@@ -87,6 +204,12 @@ function updateCurrentYear() {
 
 // Inicializar cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', async () => {
+    // Inicializar tema (antes de cargar cualquier contenido)
+    initTheme();
+    
+    // Crear botón de tema
+    createThemeButton();
+    
     // Actualizar el año en el footer
     updateCurrentYear();
     
@@ -104,7 +227,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 // Exportar funciones para uso global (opcional)
 window.loadAllDrivers = loadAllDrivers;
+window.toggleTheme = toggleTheme;
 window.ServiCarga = {
     loadAllDrivers,
-    updateCurrentYear
+    updateCurrentYear,
+    toggleTheme,
+    initTheme
 };
