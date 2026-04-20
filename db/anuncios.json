@@ -1,36 +1,36 @@
 [
     {
         "id": 1,
-        "name": "Tienda Don Pepe",
-        "category": "tienda",
-        "description": "Abarrotes, víveres, productos de primera necesidad. Despachos a domicilio en Nátaga.",
-        "phone": "3124567890",
-        "whatsapp": "3124567890",
-        "address": "Calle Principal #12-34, Nátaga",
-        "icon": "fa-store",
+        "name": "Nelson Skin's Tatto",
+        "category": "Studio tatuajes",
+        "description": "Tatuajes personalizados, accesorios. Calidad y creatividad en cada diseño.",
+        "phone": "3144317568",
+        "whatsapp": "3144317568",
+        "address": "Carrera 6 #4-09, Nátaga",
+        "icon": "fa-paint-brush",
         "featured": true
     },
     {
         "id": 2,
-        "name": "Ferretería El Constructor",
-        "category": "ferreteria",
-        "description": "Materiales de construcción, herramientas, pinturas. Envíos de materiales a toda Nátaga.",
+        "name": "Portal 93 ",
+        "category": "restaurante",
+        "description": "Platos a la carta, Domicilios disponibles.",
         "phone": "3209876543",
         "whatsapp": "3209876543",
-        "address": "Carrera 5 #8-20, Nátaga",
-        "icon": "fa-tools",
+        "address": "Calle 1 #5-40, Nátaga",
+        "icon": "fa-utensils",
         "featured": true
     },
     {
         "id": 3,
-        "name": "Carnicería La Buena Carne",
+        "name": "Carnicería ",
         "category": "carniceria",
         "description": "Carnes de primera calidad, pollo, cerdo, res. Cortes especiales y domicilios.",
         "phone": "3145678901",
         "whatsapp": "3145678901",
         "address": "Mercado Municipal, Local 5",
         "icon": "fa-drumstick-bite",
-        "featured": false
+        "featured": true
     },
     {
         "id": 4,
@@ -52,7 +52,7 @@
         "whatsapp": "3135678901",
         "address": "Barrio Centro, Calle 4",
         "icon": "fa-shopping-cart",
-        "featured": false
+        "featured": true
     },
     {
         "id": 6,
@@ -63,7 +63,7 @@
         "whatsapp": "3223456789",
         "address": "Carrera 8 #12-45, Nátaga",
         "icon": "fa-paw",
-        "featured": false
+        "featured": true
     },
     {
         "id": 7,
@@ -74,7 +74,7 @@
         "whatsapp": "3167890123",
         "address": "Calle 10 #5-22, Nátaga",
         "icon": "fa-book",
-        "featured": false
+        "featured": true
     },
     {
         "id": 8,
@@ -89,9 +89,9 @@
     },
     {
         "id": 9,
-        "name": "Taller Mecánico El Motor",
+        "name": "Taller Mecánico Daza Motos",
         "category": "taller",
-        "description": "Mantenimiento y reparación de motos, camionetas y tuktuks.",
+        "description": "Mantenimiento y reparación de motos",
         "phone": "3214567890",
         "whatsapp": "3214567890",
         "address": "Vía Principal, Sector El Puente",
@@ -107,6 +107,20 @@
         "whatsapp": "3187654321",
         "address": "Plaza de Mercado, Puesto 12",
         "icon": "fa-apple-alt",
-        "featured": false
+        "featured": true
+    },
+    {
+        "id": 11,
+        "name": "Motorepuestos Nataga",
+        "category": [
+            "taller",
+            "tienda"
+        ],
+        "description": "Venta de repuestos de motos, Mantenimiento y reparación de motos.",
+        "phone":"3223456789",
+        "whatsapp":"3101234567",
+        "address":"Barrio Centro, Calle 4",
+        "icon":"fa-wrench",
+        "featured":true
     }
 ]

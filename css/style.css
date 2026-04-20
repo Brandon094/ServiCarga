@@ -68,7 +68,7 @@ html {
 }
 
 body {
-    font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
+    font-family: "Datatype", monospace;
     line-height: 1.6;
     color: var(--text-main);
     background: var(--primary-gradient);
@@ -139,7 +139,6 @@ body {
 }
 
 .welcome-title {
-    font-family: "Caesar Dressing", cursive;
     font-size: clamp(1.8rem, 5vw, 2.5rem);
     background: var(--primary-gradient);
     background-clip: text;
@@ -190,7 +189,6 @@ body {
 }
 
 .category-header h2 {
-    font-family: "Caesar Dressing", cursive;
     font-size: 1.8rem;
     color: white;
     margin: 0;
@@ -576,7 +574,6 @@ body {
 
 /* ========== ANUNCIOS LOCALES (CARRUSEL) ========== */
 .anuncios-titulo {
-    font-family: "Caesar Dressing", cursive;
     font-size: 1.5rem;
     color: white;
     margin: 30px 0 20px 0;

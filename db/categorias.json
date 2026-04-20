@@ -52,5 +52,17 @@
         "name": "Frutas y Verduras",
         "icon": "fa-apple-alt",
         "color": "#22c55e"
+    },
+    {
+        "id": "farmacia",
+        "name": "Farmacias",
+        "icon": "fa-pills",
+        "color": "#8b5cf6"
+    },
+    {
+        "id": "Studio tatuajes",
+        "name": "Studio tatuajes",
+        "icon": "fa-paint-brush",
+        "color": "#ec489a"
     }
 ]

@@ -1,26 +1,8 @@
 [
     {
         "id": 1,
-        "name": "Diego Castro",
-        "phone": "123-456-7890",
-        "vehicle": "motocarro"
-    },
-    {
-        "id": 2,
-        "name": "Yulmer Gordo",
-        "phone": "098-765-4321",
-        "vehicle": "motocarro"
-    },
-    {
-        "id": 3,
-        "name": "Alice Johnson",
-        "phone": "555-123-4567",
-        "vehicle": "motocarro"
-    },
-    {
-        "id": 4,
-        "name": "Bob Brown",
-        "phone": "555-987-6543",
+        "name": "Duvan Pito",
+        "phone": "3219967572",
         "vehicle": "motocarro"
     }
 ]

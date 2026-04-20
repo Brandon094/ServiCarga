@@ -1,26 +1,14 @@
 [
     {
         "id": 1,
-        "name": "Andrez Zapata",
-        "phone": "123-456-7890",
-        "vehicle": "camioneta"
-    },
-    {
-        "id": 2,
         "name": "Juan Carlos Collazos",
-        "phone": "098-765-4321",
+        "phone": "310 6443340",
         "vehicle": "camioneta"
     },
     {
         "id": 3,
         "name": "Rodier Arias",
-        "phone": "555-123-4567",
-        "vehicle": "camioneta"
-    },
-    {
-        "id": 4,
-        "name": "Bob Brown",
-        "phone": "555-987-6543",
+        "phone": "3118824575",
         "vehicle": "camioneta"
     }
 ]
