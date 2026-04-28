@@ -64,5 +64,11 @@
         "name": "Studio tatuajes",
         "icon": "fa-paint-brush",
         "color": "#ec489a"
+    },
+    {
+        "id":"carWhash",
+        "name":"Lavadero de motos y carros",
+        "icon":"fa-car",
+        "color":"#f59e0b"
     }
 ]
