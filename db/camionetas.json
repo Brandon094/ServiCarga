@@ -2,8 +2,14 @@
     {
         "id": 1,
         "name": "Juan Carlos Collazos",
-        "phone": "310 6443340",
+        "phone": "3106443340",
         "vehicle": "camioneta"
+    },
+    {
+        "id":2,
+        "name":"Juan Sebastian Cerquera",
+        "phone":"3214495760",
+        "vehicle":"camioneta"
     },
     {
         "id": 3,
