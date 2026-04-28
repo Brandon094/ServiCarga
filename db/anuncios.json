@@ -10,107 +10,30 @@
         "icon": "fa-paint-brush",
         "featured": true
     },
-    {
+{
         "id": 2,
-        "name": "Portal 93 ",
-        "category": "restaurante",
-        "description": "Platos a la carta, Domicilios disponibles.",
-        "phone": "3209876543",
-        "whatsapp": "3209876543",
-        "address": "Calle 1 #5-40, Nátaga - Primer piso",
-        "icon": "fa-utensils",
-        "featured": true
-    },
-    {
-        "id": 3,
-        "name": "Carnicería ",
-        "category": "carniceria",
-        "description": "Carnes de primera calidad, pollo, cerdo, res. Cortes especiales y domicilios.",
-        "phone": "3145678901",
-        "whatsapp": "3145678901",
-        "address": "Mercado Municipal, Local 5",
-        "icon": "fa-drumstick-bite",
-        "featured": true
-    },
-    {
-        "id": 4,
-        "name": "Panadería El Trigal",
-        "category": "panaderia",
-        "description": "Pan fresco todos los días, pasteles, galletas, tortas para toda ocasión.",
-        "phone": "3156789012",
-        "whatsapp": "3156789012",
-        "address": "Calle 7 #3-15, Nátaga",
-        "icon": "fa-bread-slice",
-        "featured": true
-    },
-    {
-        "id": 5,
-        "name": "Tienda de Abarroos La Economía",
-        "category": "tienda",
-        "description": "Abarrotes, licores, refrescos, productos de aseo. Los mejores precios.",
-        "phone": "3135678901",
-        "whatsapp": "3135678901",
-        "address": "Barrio Centro, Calle 4",
-        "icon": "fa-shopping-cart",
-        "featured": true
-    },
-    {
-        "id": 6,
-        "name": "Veterinaria Mis Patas",
-        "category": "veterinaria",
-        "description": "Atención veterinaria, vacunas, alimentos, accesorios para mascotas.",
-        "phone": "3223456789",
-        "whatsapp": "3223456789",
-        "address": "Carrera 8 #12-45, Nátaga",
-        "icon": "fa-paw",
-        "featured": true
-    },
-    {
-        "id": 7,
-        "name": "Papelería El Estudiante",
-        "category": "papeleria",
-        "description": "Útiles escolares, artículos de oficina, impresiones, fotocopias.",
-        "phone": "3167890123",
-        "whatsapp": "3167890123",
-        "address": "Calle 10 #5-22, Nátaga",
-        "icon": "fa-book",
-        "featured": true
-    },
-    {
-        "id": 8,
-        "name": "Restaurante El Sabor Natagueño",
-        "category": "restaurante",
-        "description": "Comida típica colombiana, almuerzos ejecutivos, domicilios.",
-        "phone": "3101234567",
-        "whatsapp": "3101234567",
-        "address": "Parque Principal, Nátaga",
-        "icon": "fa-utensils",
-        "featured": true
-    },
-    {
-        "id": 9,
         "name": "Taller Mecánico Daza Motos",
         "category": "taller",
-        "description": "Mantenimiento y reparación de motos",
-        "phone": "3214567890",
-        "whatsapp": "3214567890",
+        "description": "Mantenimiento, reparación y pintura de motos",
+        "phone": "3208934413",
+        "whatsapp": "3208934413",
         "address": "Vía Principal, Sector El Puente",
         "icon": "fa-wrench",
         "featured": true
     },
     {
-        "id": 10,
-        "name": "Frutas y Verduras La Cosecha",
-        "category": "verduleria",
-        "description": "Frutas y verduras frescas directamente del campo a tu casa.",
-        "phone": "3187654321",
-        "whatsapp": "3187654321",
-        "address": "Plaza de Mercado, Puesto 12",
-        "icon": "fa-apple-alt",
+        "id": 3,
+        "name": "Lavadero de motos y carros",
+        "category": "carWhash",
+        "description": "Lavado y detallado de motos y carros, Servicio rápido y de calidad.",
+        "phone": "3123142534",
+        "whatsapp": "3123142534",
+        "address": "Vía Principal, Sector El Puente",
+        "icon": "fa-car",
         "featured": true
     },
     {
-        "id": 11,
+        "id": 4,
         "name": "Motorepuestos Nataga",
         "category": [
             "taller",
@@ -122,5 +45,82 @@
         "address":"Barrio Centro, Calle 4",
         "icon":"fa-wrench",
         "featured":true
+    },
+    {
+        "id": 5,
+        "name": "Portón de la Abuela - Ejemplo",
+        "category": "restaurante",
+        "description": "Platos a la carta, Domicilios disponibles.",
+        "phone": "3209876543",
+        "whatsapp": "3209876543",
+        "address": "Calle 1 #5-40, Nátaga - Primer piso",
+        "icon": "fa-utensils",
+        "featured": true
+    },
+    {
+        "id": 6,
+        "name": "Carnicería - Ejemplo",
+        "category": "carniceria",
+        "description": "Carnes de primera calidad, pollo, cerdo, res. Cortes especiales y domicilios.",
+        "phone": "3145678901",
+        "whatsapp": "3145678901",
+        "address": "Mercado Municipal, Local 5",
+        "icon": "fa-drumstick-bite",
+        "featured": true
+    },
+    {
+        "id": 7,
+        "name": "Panadería El Trigal - Ejemplo",
+        "category": "panaderia",
+        "description": "Pan fresco todos los días, pasteles, galletas, tortas para toda ocasión.",
+        "phone": "3156789012",
+        "whatsapp": "3156789012",
+        "address": "Calle 7 #3-15, Nátaga",
+        "icon": "fa-bread-slice",
+        "featured": true
+    },
+    {
+        "id": 8,
+        "name": "Tienda de Abarroos La Economía - Ejemplo",
+        "category": "tienda",
+        "description": "Abarrotes, licores, refrescos, productos de aseo. Los mejores precios.",
+        "phone": "3135678901",
+        "whatsapp": "3135678901",
+        "address": "Barrio Centro, Calle 4",
+        "icon": "fa-shopping-cart",
+        "featured": true
+    },
+    {
+        "id": 9,
+        "name": "Veterinaria Mis Patas - Ejemplo",
+        "category": "veterinaria",
+        "description": "Atención veterinaria, vacunas, alimentos, accesorios para mascotas.",
+        "phone": "3223456789",
+        "whatsapp": "3223456789",
+        "address": "Carrera 8 #12-45, Nátaga",
+        "icon": "fa-paw",
+        "featured": true
+    },
+    {
+        "id": 10,
+        "name": "Papelería El Estudiante - Ejemplo",
+        "category": "papeleria",
+        "description": "Útiles escolares, artículos de oficina, impresiones, fotocopias.",
+        "phone": "3167890123",
+        "whatsapp": "3167890123",
+        "address": "Calle 10 #5-22, Nátaga",
+        "icon": "fa-book",
+        "featured": true
+    },
+    {
+        "id": 11,
+        "name": "Restaurante El Sabor Natagueño - Ejemplo",
+        "category": "restaurante",
+        "description": "Comida típica colombiana, almuerzos ejecutivos, domicilios.",
+        "phone": "3208934413",
+        "whatsapp": "3208934413",
+        "address": "Parque Principal, Nátaga",
+        "icon": "fa-utensils",
+        "featured": true
     }
 ]
