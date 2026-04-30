@@ -70,5 +70,11 @@
         "name":"Lavadero de motos y carros",
         "icon":"fa-car",
         "color":"#f59e0b"
+    },
+    {
+        "id":"perfumeria",
+        "name":"Perfumerías",
+        "icon":"fa-spray-can",
+        "color":"#3b82f6"
     }
 ]
