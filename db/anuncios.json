@@ -4,8 +4,8 @@
         "name": "Nelson Skin's Tatto",
         "category": "Studio tatuajes",
         "description": "Tatuajes personalizados, accesorios. Calidad y creatividad en cada diseño.",
-        "phone": "3144317568",
-        "whatsapp": "3144317568",
+        "phone": "+573144317568",
+        "whatsapp": "+573144317568",
         "address": "Carrera 6 #4-09, Nátaga",
         "icon": "fa-paint-brush",
         "featured": true
@@ -15,8 +15,8 @@
         "name": "Taller Mecánico Daza Motos",
         "category": "taller",
         "description": "Mantenimiento, reparación y pintura de motos",
-        "phone": "3208934413",
-        "whatsapp": "3208934413",
+        "phone": "+573208934413",
+        "whatsapp": "+573208934413",
         "address": "Vía Principal, Sector El Puente",
         "icon": "fa-wrench",
         "featured": true
@@ -26,8 +26,8 @@
         "name": "Lavadero de motos y carros",
         "category": "carWhash",
         "description": "Lavado y detallado de motos y carros, Servicio rápido y de calidad.",
-        "phone": "3123142534",
-        "whatsapp": "3123142534",
+        "phone": "+573123142534",
+        "whatsapp": "+573123142534",
         "address": "Vía Principal, Sector El Puente",
         "icon": "fa-car",
         "featured": true
@@ -40,8 +40,8 @@
             "tienda"
         ],
         "description": "Venta de repuestos de motos, Mantenimiento y reparación de motos.",
-        "phone":"3223456789",
-        "whatsapp":"3101234567",
+        "phone":"+573157922089",
+        "whatsapp":"+573157922089",
         "address":"Barrio Centro, Calle 4",
         "icon":"fa-wrench",
         "featured":true
@@ -51,8 +51,8 @@
         "name": "Taller y Montallantas Tuerca",
         "category": "taller",
         "description": "Mantenimiento, reparación y cambio de llantas y servicio de despinchada de motos y carros.",
-        "phone": "3132891897",
-        "whatsapp": "3132891897",
+        "phone": "+573132891897",
+        "whatsapp": "+573132891897",
         "address": "Vía Principal, Sector El Puente",
         "icon": "fa-utensils",
         "featured": true
@@ -62,8 +62,8 @@
         "name": "Restaurante Portal 93",
         "category": "restaurante",
         "description": "Comida típica colombiana, almuerzos ejecutivos, domicilios.",
-        "phone": "3145678901",
-        "whatsapp": "3145678901",
+        "phone": "+573135917207",
+        "whatsapp": "+573135917207",
         "address": "Calle 1 #5-40",
         "icon": "fa-drumstick-bite",
         "featured": true
