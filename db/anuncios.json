@@ -40,11 +40,11 @@
             "tienda"
         ],
         "description": "Venta de repuestos de motos, Mantenimiento y reparación de motos.",
-        "phone":"+573157922089",
-        "whatsapp":"+573157922089",
-        "address":"Barrio Centro, Calle 4",
-        "icon":"fa-wrench",
-        "featured":true
+        "phone": "+573157922089",
+        "whatsapp": "+573157922089",
+        "address": "Barrio Centro, Calle 4",
+        "icon": "fa-wrench",
+        "featured": true
     },
     {
         "id": 5,
@@ -54,18 +54,32 @@
         "phone": "+573132891897",
         "whatsapp": "+573132891897",
         "address": "Vía Principal, Sector El Puente",
-        "icon": "fa-utensils",
+        "icon": "fa-wrench",
         "featured": true
     },
     {
         "id": 6,
-        "name": "Restaurante Portal 93",
-        "category": "restaurante",
-        "description": "Comida típica colombiana, almuerzos ejecutivos, domicilios.",
-        "phone": "+573135917207",
-        "whatsapp": "+573135917207",
-        "address": "Calle 1 #5-40",
-        "icon": "fa-drumstick-bite",
+        "name": "Esencia de Orquidea - Pefumería y algo más",
+        "category": [
+            "tienda",
+            "perfumeria"
+        ],
+        "description": "Perfumería, cosméticos, accesorios y regalos. Variedad y calidad en un solo lugar.",
+        "phone": "+573203368868",
+        "whatsapp": "+573203368868",
+        "address": "Calle #7-56 Barrio Cristo Rey",
+        "icon": "fa-spray-can",
+        "featured": true
+    },
+    {
+        "id": 7,
+        "name": "Taller Electromecánico Cepeda Motor's",
+        "category": "taller",
+        "description": "Servicio de reparación y mantenimiento de vehículos.",
+        "phone": "+573132520358",
+        "whatsapp": "+573132520358",
+        "address": "Calle 3 #2-10 Barrio Pueblo nuevo",
+        "icon": "fa-wrench",
         "featured": true
     }
 ]
