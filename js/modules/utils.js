@@ -15,6 +15,19 @@ export function formatPhoneNumber(phone) {
     return phone;
 }
 
+// Función para enviar eventos personalizados a Google Analytics
+export function trackDriverContact(driverId, driverName, contactMethod, vehicleType) {
+    if (typeof gtag === 'undefined') return; // Si GA no está disponible
+    
+    gtag('event', 'driver_contact', {
+        'driver_id': driverId,
+        'driver_name': driverName,
+        'contact_method': contactMethod, // 'call' o 'whatsapp'
+        'vehicle_type': vehicleType,
+        'timestamp': new Date().toISOString()
+    });
+}
+
 // Función para escapar HTML y prevenir XSS
 export function escapeHtml(text) {
     const div = document.createElement('div');

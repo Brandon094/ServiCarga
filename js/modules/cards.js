@@ -1,4 +1,4 @@
-import { formatPhoneNumber, escapeHtml } from './utils.js';
+import { formatPhoneNumber, escapeHtml, trackDriverContact } from './utils.js';
 
 // Función para crear una tarjeta de contacto
 // Ahora recibe un tercer parámetro: vehicleIcon
@@ -34,6 +34,28 @@ export function createContactCard(driver, vehicleType, vehicleIcon = 'fa-truck')
             </a>
         </div>
     `;
+    
+    // Agregar event listeners para rastrear clics
+    const callBtn = card.querySelector('.btn-call');
+    const whatsappBtn = card.querySelector('.btn-whatsapp');
+    
+    callBtn.addEventListener('click', (e) => {
+        trackDriverContact(
+            driver.id,
+            driver.name,
+            'call',
+            vehicleType
+        );
+    });
+    
+    whatsappBtn.addEventListener('click', (e) => {
+        trackDriverContact(
+            driver.id,
+            driver.name,
+            'whatsapp',
+            vehicleType
+        );
+    });
     
     return card;
 }
