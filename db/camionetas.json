@@ -34,5 +34,11 @@
         "name":"Ferney Ardila 'Minuto'",
         "phone":"3124362192",
         "vehicle":"camioneta"
+    },
+    {
+        "id": 7,
+        "name": "Leandro Alvarado",
+        "phone": "3212461456",
+        "vehicle":"camioneta"
     }
 ]
