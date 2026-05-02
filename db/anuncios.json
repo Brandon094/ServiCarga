@@ -81,5 +81,27 @@
         "address": "Calle 3 #2-10 Barrio Pueblo nuevo",
         "icon": "fa-wrench",
         "featured": true
+    },
+    {
+        "id": 8,
+        "name": "Alelash - Tu mirada es nuestra pasión!",
+        "category": "belleza",
+        "description": "Pestañas clasicas y tecnologicas, listing coreano, laminado de cejas, depilacion y diseño de cejas con aplicacion de henna.",
+        "phone": "+573144152047",
+        "whatsapp": "+573144152047",
+        "address": "Calle central, Barrio el progreso",
+        "icon": "fa-eye",
+        "featured": true
+    },
+    {
+        "id": 9,
+        "name": "Mostacho Barber Shop",
+        "category": "belleza",
+        "description": "Servicio de corte y peinado para hombres.",
+        "phone": "+573108131814",
+        "whatsapp": "+573108131814",
+        "address": "Calle 3 #7-19 Barrio el progreso",
+        "icon": "fa-cut",
+        "featured": true
     }
 ]
