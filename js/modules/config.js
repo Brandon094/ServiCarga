@@ -23,5 +23,13 @@ export const categories = [
         vehicleIcon: 'fa-car-side',  // ← Agrega esto
         file: 'db/tuktuk.json',
         vehicleType: 'TukTuk'
+    },
+    {
+        id: 'motos',
+        name: 'Mototaxi',
+        icon: 'fa-motorcycle',
+        vehicleIcon: 'fa-motorcycle',  // ← Agrega esto
+        file: 'db/motos.json',
+        vehicleType: 'Moto'
     }
 ];
