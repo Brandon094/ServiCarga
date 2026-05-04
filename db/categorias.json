@@ -76,5 +76,11 @@
         "name":"Perfumerías",
         "icon":"fa-spray-can",
         "color":"#3b82f6"
+    },
+    {
+        "id":"supermercado",
+        "name":"Supermercados",
+        "icon":"fa-shopping-cart",
+        "color":"#10b981"
     }
 ]

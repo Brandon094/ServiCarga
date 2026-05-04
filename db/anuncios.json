@@ -103,5 +103,16 @@
         "address": "Calle 3 #7-19 Barrio el progreso",
         "icon": "fa-cut",
         "featured": true
+    },
+    {
+        "id": 10,
+        "name": "Merca Plaza",
+        "category": "supermercado",
+        "description": "Centro de  abastecimiento de productos de la canasta familiar; Donde encuentras granos, pollo, arroz ,Verduras🐔🥕🥬 gaseosa y cerveza 🧃al por mayor y al detal\nContamos con servicio de Nequi y Bancolombia para tu comodidad",
+        "phone": "+573229069576",
+        "whatsapp": "+573229069576",
+        "address": "Al lado de la galeria principal",
+        "icon": "fa-shopping-cart",
+        "featured": true
     }
 ]
