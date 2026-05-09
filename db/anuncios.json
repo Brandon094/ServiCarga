@@ -26,8 +26,8 @@
         "name": "Lavadero de motos y carros",
         "category": "carWhash",
         "description": "Lavado y detallado de motos y carros, Servicio rápido y de calidad.",
-        "phone": "+573123142534",
-        "whatsapp": "+573123142534",
+        "phone": "+573228533516",
+        "whatsapp": "+573228533516",
         "address": "Vía Principal, Sector El Puente",
         "icon": "fa-car",
         "featured": true
@@ -111,8 +111,19 @@
         "description": "Centro de  abastecimiento de productos de la canasta familiar; Donde encuentras granos, pollo, arroz ,Verduras🐔🥕🥬 gaseosa y cerveza 🧃al por mayor y al detal\nContamos con servicio de Nequi y Bancolombia para tu comodidad",
         "phone": "+573229069576",
         "whatsapp": "+573229069576",
-        "address": "Al lado de la galeria principal",
+        "address": "A un costado de la galeria principal",
         "icon": "fa-shopping-cart",
+        "featured": true
+    },
+    {
+        "id": 11,
+        "name": "Ferti - Cauca",
+        "category": "agricultura",
+        "description": "Somos la casa del Silicio. Manejamos línea completa para café: Desde Cal para desacidificar, hasta 17-6-18-2 + Silicio para llenar grano en mitaca.",
+        "phone": "+573123142534",
+        "whatsapp": "+573123142534",
+        "address": "Barrio Centro, Calle 4",
+        "icon": "fa-seedling",
         "featured": true
     }
 ]
