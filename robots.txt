@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Sitemap: https://brandon094.github.io/ServiCarga/sitemap.xml
+
+# Evita el rastreo de archivos temporales o privados si los hay
+Disallow: /node_modules/
+Disallow: /.git/
+Disallow: /README.md
+Disallow: /LICENSE.md
