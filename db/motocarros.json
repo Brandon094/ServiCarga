@@ -5,9 +5,7 @@
         "phone": "+573144237721",
         "vehicle": "motocarro",
         "gallery": [
-            "img/gallery/motocarros/yulmerCastaneda1.jpeg",
-            "img/gallery/motocarros/yulmerCastaneda2.jpeg",
-            "img/gallery/motocarros/yulmerCastaneda3.jpeg"
+            
         ]
     },
     {
@@ -16,9 +14,7 @@
         "phone": "+573219967572",
         "vehicle": "motocarro",
         "gallery": [
-            "img/gallery/motocarros/duvanPito1.jpeg",
-            "img/gallery/motocarros/duvanPito2.jpeg",
-            "img/gallery/motocarros/duvanPito3.jpeg"
+            
         ]
     },
     {
@@ -27,9 +23,7 @@
         "phone": "+573132775535",
         "vehicle": "motocarro",
         "gallery": [
-            "img/gallery/motocarros/diegoCastro1.jpeg",
-            "img/gallery/motocarros/diegoCastro2.jpeg",
-            "img/gallery/motocarros/diegoCastro3.jpeg"
+            
         ]
     }
 ]

@@ -49,9 +49,7 @@
         "phone": "+573114902826",
         "vehicle": "camioneta",
         "gallery": [
-            "img/gallery/camionetas/duvanRamos1.jpeg",
-            "img/gallery/camionetas/duvanRamos2.jpeg",
-            "img/gallery/camionetas/duvanRamos3.jpeg"
+            
         ]
     },
     {
@@ -60,9 +58,7 @@
         "phone":"+573124362192",
         "vehicle":"camioneta",
         "gallery": [
-            "img/gallery/camionetas/ferneyArdila1.jpeg",
-            "img/gallery/camionetas/ferneyArdila2.jpeg",
-            "img/gallery/camionetas/ferneyArdila3.jpeg"
+            
         ]
     },
     {
@@ -71,9 +67,7 @@
         "phone": "+573212461456",
         "vehicle":"camioneta",
         "gallery": [
-            "img/gallery/camionetas/leandroAlvarado1.jpeg",
-            "img/gallery/camionetas/leandroAlvarado2.jpeg",
-            "img/gallery/camionetas/leandroAlvarado3.jpeg"
+            
         ]
     }
 ]

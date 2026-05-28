@@ -7,36 +7,35 @@ function getGallerySlides(vehicleType, vehicleIcon, galleryImages = null) {
     if (galleryImages && galleryImages.length > 0) {
         return galleryImages.map((image, index) => `
             <div class="gallery-slide${index === 0 ? ' active' : ''}" data-index="${index}">
-                <div class="gallery-image">
-                    <img src="${escapeHtml(image)}" alt="${escapeHtml(vehicleType)} - Foto ${index + 1}" />
+                <div class="gallery-image" data-placeholder="${escapeHtml(vehicleType)} - Foto ${index + 1}">
+                    <img
+                        src="${escapeHtml(image)}"
+                        alt="${escapeHtml(vehicleType)} - Foto ${index + 1}"
+                        loading="lazy"
+                        onload="this.classList.add('loaded')"
+                        onerror="this.remove(); this.parentElement.classList.add('image-error');"
+                    />
                 </div>
             </div>
         `).join('');
     }
 
-    // Si no hay imágenes, usar iconos por defecto
-    const slides = [
-        { title: 'Exterior', description: `Vista frontal y detalles del ${vehicleType}` },
-        { title: 'Interior', description: `Espacio de carga y condición del ${vehicleType}` },
-        { title: 'Listo para cargar', description: `Vehículo preparado para el próximo acarreo` }
-    ];
-
-    return slides.map((slide, index) => `
-        <div class="gallery-slide${index === 0 ? ' active' : ''}" data-index="${index}">
-            <div class="gallery-image">
-                <i class="fas ${vehicleIcon}"></i>
-                <div class="gallery-image-label">${escapeHtml(vehicleType)}</div>
-            </div>
-            <div class="gallery-caption">
-                <strong>${escapeHtml(slide.title)}</strong>
-                <p>${escapeHtml(slide.description)}</p>
+    // Si no hay imágenes, mostrar placeholder UX
+    return `
+        <div class="gallery-slide active" data-index="0">
+            <div class="gallery-image placeholder">
+                <div class="placeholder-content">
+                    <i class="fas fa-camera-retro"></i>
+                    <div class="gallery-image-label">Muy pronto contamos con fotos</div>
+                    <p class="placeholder-text">Estamos trabajando para mostrar imágenes reales de este vehículo.</p>
+                </div>
             </div>
         </div>
-    `).join('');
+    `;
 }
 
 function createGalleryHtml(vehicleType, vehicleIcon, galleryImages = null) {
-    const numSlides = (galleryImages && galleryImages.length > 0) ? galleryImages.length : 3;
+    const numSlides = (galleryImages && galleryImages.length > 0) ? galleryImages.length : 1;
     const dots = Array.from({ length: numSlides }, (_, i) => 
         `<button type="button" class="gallery-dot${i === 0 ? ' active' : ''}" data-index="${i}" aria-label="Imagen ${i + 1}"></button>`
     ).join('');
