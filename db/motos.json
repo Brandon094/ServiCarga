@@ -3,6 +3,11 @@
         "id": 1,
         "name": "Favian Pescue Tumbo",
         "phone": "+573144726958",
-        "vehicle": "moto"
+        "vehicle": "moto",
+        "gallery": [
+            "img/gallery/motos/favianPescue1.jpeg",
+            "img/gallery/motos/favianPescue2.jpeg",
+            "img/gallery/motos/favianPescue3.jpeg"
+        ]
     }
 ]

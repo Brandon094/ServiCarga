@@ -3,24 +3,44 @@
         "id": 1,
         "name": "Ramiro Suarez",
         "phone": "+573203724181",
-        "vehicle": "tuktuk"
+        "vehicle": "tuktuk",
+        "gallery": [
+            "img/gallery/tuktuk/ramiroSuarez1.jpeg",
+            "img/gallery/tuktuk/ramiroSuarez2.jpeg",
+            "img/gallery/tuktuk/ramiroSuarez3.jpeg"
+        ]
     },
     {
         "id": 2,
         "name": "Fabian Perdomo",
         "phone": "+573125227200",
-        "vehicle": "tuktuk"
+        "vehicle": "tuktuk",
+        "gallery": [
+            "img/gallery/tuktuk/fabianPerdomo1.jpeg",
+            "img/gallery/tuktuk/fabianPerdomo2.jpeg",
+            "img/gallery/tuktuk/fabianPerdomo3.jpeg"
+        ]
     },
     {
         "id": 3,
         "name": "Ramon Perdomo",
         "phone": "+573115204867",
-        "vehicle": "tuktuk"
+        "vehicle": "tuktuk",
+        "gallery": [
+            "img/gallery/tuktuk/ramonPerdomo1.jpeg",
+            "img/gallery/tuktuk/ramonPerdomo2.jpeg",
+            "img/gallery/tuktuk/ramonPerdomo3.jpeg"
+        ]
     },
     {
         "id": 4,
         "name": "Paola Noscue",
         "phone": "+573222171106",
-        "vehicle": "tuktuk"
+        "vehicle": "tuktuk",
+        "gallery": [
+            "img/gallery/tuktuk/paolaNoscue1.jpeg",
+            "img/gallery/tuktuk/paolaNoscue2.jpeg",
+            "img/gallery/tuktuk/paolaNoscue3.jpeg"
+        ]
     }
 ]
