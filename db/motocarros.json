@@ -23,7 +23,9 @@
         "phone": "+573132775535",
         "vehicle": "motocarro",
         "gallery": [
-            
+            "img/gallery/motocarros/diegoCastro1.jpeg",
+            "img/gallery/motocarros/diegoCastro2.jpeg",
+            "img/gallery/motocarros/diegoCastro3.jpeg"
         ]
     }
 ]
