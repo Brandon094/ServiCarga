@@ -1,8 +1,20 @@
 import { formatPhoneNumber, escapeHtml, trackDriverContact } from './utils.js';
 
 // Función para crear una tarjeta de contacto
-// Ahora recibe un tercer parámetro: vehicleIcon
-function getGallerySlides(vehicleType, vehicleIcon) {
+// Ahora recibe un tercer parámetro: vehicleIcon y galerías opcional
+function getGallerySlides(vehicleType, vehicleIcon, galleryImages = null) {
+    // Si hay imágenes reales, usarlas
+    if (galleryImages && galleryImages.length > 0) {
+        return galleryImages.map((image, index) => `
+            <div class="gallery-slide${index === 0 ? ' active' : ''}" data-index="${index}">
+                <div class="gallery-image">
+                    <img src="${escapeHtml(image)}" alt="${escapeHtml(vehicleType)} - Foto ${index + 1}" />
+                </div>
+            </div>
+        `).join('');
+    }
+
+    // Si no hay imágenes, usar iconos por defecto
     const slides = [
         { title: 'Exterior', description: `Vista frontal y detalles del ${vehicleType}` },
         { title: 'Interior', description: `Espacio de carga y condición del ${vehicleType}` },
@@ -23,14 +35,25 @@ function getGallerySlides(vehicleType, vehicleIcon) {
     `).join('');
 }
 
-function createGalleryHtml(vehicleType, vehicleIcon) {
+function createGalleryHtml(vehicleType, vehicleIcon, galleryImages = null) {
+    const numSlides = (galleryImages && galleryImages.length > 0) ? galleryImages.length : 3;
+    const dots = Array.from({ length: numSlides }, (_, i) => 
+        `<button type="button" class="gallery-dot${i === 0 ? ' active' : ''}" data-index="${i}" aria-label="Imagen ${i + 1}"></button>`
+    ).join('');
+
     return `
         <div class="vehicle-gallery">
-            ${getGallerySlides(vehicleType, vehicleIcon)}
-            <div class="gallery-dots">
-                <button type="button" class="gallery-dot active" data-index="0" aria-label="Imagen 1"></button>
-                <button type="button" class="gallery-dot" data-index="1" aria-label="Imagen 2"></button>
-                <button type="button" class="gallery-dot" data-index="2" aria-label="Imagen 3"></button>
+            ${getGallerySlides(vehicleType, vehicleIcon, galleryImages)}
+            <div class="gallery-controls">
+                <button type="button" class="gallery-nav gallery-prev" aria-label="Imagen anterior">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="gallery-dots">
+                    ${dots}
+                </div>
+                <button type="button" class="gallery-nav gallery-next" aria-label="Siguiente imagen">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
             </div>
         </div>
     `;
@@ -48,7 +71,7 @@ export function createContactCard(driver, vehicleType, vehicleIcon = 'fa-truck')
             ${escapeHtml(driver.name)}
             <span class="vehicle-badge">${vehicleType}</span>
         </h3>
-        ${createGalleryHtml(vehicleType, vehicleIcon)}
+        ${createGalleryHtml(vehicleType, vehicleIcon, driver.gallery)}
         <div class="contact-info">
             <p>
                 <i class="fas fa-phone"></i>
@@ -94,18 +117,60 @@ export function createContactCard(driver, vehicleType, vehicleIcon = 'fa-truck')
 
     const galleryDots = card.querySelectorAll('.gallery-dot');
     const gallerySlides = card.querySelectorAll('.gallery-slide');
+    const prevBtn = card.querySelector('.gallery-prev');
+    const nextBtn = card.querySelector('.gallery-next');
+    const gallery = card.querySelector('.vehicle-gallery');
+    
+    let currentIndex = 0;
+    let touchStartX = 0;
+    let touchEndX = 0;
 
+    // Función para cambiar slide
+    function goToSlide(index) {
+        currentIndex = (index + gallerySlides.length) % gallerySlides.length;
+        gallerySlides.forEach((slide, slideIndex) => {
+            slide.classList.toggle('active', slideIndex === currentIndex);
+        });
+        galleryDots.forEach((dot, dotIndex) => {
+            dot.classList.toggle('active', dotIndex === currentIndex);
+        });
+    }
+
+    // Navegación con puntos (dots)
     galleryDots.forEach(dot => {
         dot.addEventListener('click', () => {
-            const index = Number(dot.dataset.index);
-            gallerySlides.forEach((slide, slideIndex) => {
-                slide.classList.toggle('active', slideIndex === index);
-            });
-            galleryDots.forEach((button, buttonIndex) => {
-                button.classList.toggle('active', buttonIndex === index);
-            });
+            goToSlide(Number(dot.dataset.index));
         });
     });
+
+    // Navegación con botones
+    prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
+    nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
+
+    // Deslizamiento (touch/swipe)
+    gallery.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    });
+
+    gallery.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    });
+
+    function handleSwipe() {
+        const swipeThreshold = 50;
+        const diff = touchStartX - touchEndX;
+
+        if (Math.abs(diff) > swipeThreshold) {
+            if (diff > 0) {
+                // Deslizamiento hacia la izquierda = siguiente imagen
+                goToSlide(currentIndex + 1);
+            } else {
+                // Deslizamiento hacia la derecha = imagen anterior
+                goToSlide(currentIndex - 1);
+            }
+        }
+    }
     
     return card;
 }

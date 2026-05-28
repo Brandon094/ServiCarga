@@ -290,7 +290,63 @@ body {
     border: 1px solid rgba(255,255,255,0.08);
     margin-bottom: 18px;
     background: rgba(255,255,255,0.05);
+    position: relative;
 }
+
+.gallery-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 10px 14px 14px;
+    background: rgba(0,0,0,0.08);
+}
+
+.gallery-nav {
+    background: rgba(255, 122, 26, 0.95);
+    color: white;
+    border: none;
+    width: 34px;
+    height: 34px;
+    border-radius: 9999px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    transition: background 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.gallery-nav:hover {
+    background: rgba(255, 122, 26, 1);
+    transform: scale(1.05);
+}
+
+.gallery-nav:active {
+    transform: scale(0.95);
+}
+
+.gallery-prev,
+.gallery-next {
+    flex-shrink: 0;
+}
+
+.gallery-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 9999px;
+    background: rgba(255,255,255,0.28);
+    border: none;
+    cursor: pointer;
+    transition: transform 180ms ease, background 180ms ease;
+}
+
+.gallery-dot.active {
+    background: var(--accent);
+    transform: scale(1.3);
+}
+
 
 .gallery-slide {
     display: none;
@@ -305,7 +361,7 @@ body {
 
 .gallery-image {
     width: 100%;
-    min-height: 120px;
+    height: 280px;
     border-radius: 16px;
     background: linear-gradient(135deg, rgba(255,122,26,0.9), rgba(19,54,78,0.95));
     display: flex;
@@ -316,6 +372,14 @@ body {
     text-align: center;
     box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08);
     margin-bottom: 14px;
+    overflow: hidden;
+}
+
+.gallery-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .gallery-image i {
