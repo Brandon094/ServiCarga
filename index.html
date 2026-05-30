@@ -11,11 +11,6 @@
 
         gtag('config', 'G-5BH8FGWHWQ');
     </script>
-    <!-- Google AdSense -->
-    <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5453302545408576"
-        crossorigin="anonymous"></script>
-    -->
-
     <!-- Meta tags básicas -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -40,7 +35,6 @@
     <meta property="og:url" content="https://brandon094.github.io/ServiCarga/">
 
     <!-- IMAGEN para la previsualización -->
-    <!-- IMPORTANTE: Necesitas subir una imagen a tu repositorio -->
     <meta property="og:image" content="https://brandon094.github.io/ServiCarga/img/preview.png">
 
     <!-- Tipo de imagen -->
@@ -81,6 +75,11 @@
 </head>
 
 <body>
+    <!-- Botón flotante de administración - Redirige a login -->
+    <a href="pages/admin-login.html" class="admin-float-btn" title="Panel de Administración">
+        <i class="fas fa-user-shield"></i>
+    </a>
+
     <!-- Header con Banner -->
     <header class="main-header">
         <div class="banner">
@@ -91,8 +90,7 @@
                             Confiable</span></h2>
                     <p class="hero-sub">Conectamos a Nátaga con transporte de carga y acarreos locales al instante.</p>
                     <div class="hero-ctas">
-                        <a href="https://wa.me/573222824941?text=Hola%2C%20quiero%20registrarme%20como%20conductor"
-                            target="_blank" class="btn btn-call" style="width:auto; padding:12px 20px;">
+                        <a href="pages/register.html" class="btn btn-call">
                             Únete gratis
                         </a>
                     </div>
@@ -160,10 +158,8 @@
                     <i class="fas fa-chalkboard-user" style="font-size: 2rem; color: #667eea; margin-bottom: 10px;"></i>
                     <h4>¿Eres conductor y no apareces?</h4>
                     <p>Regístrate gratis para que la comunidad te encuentre</p>
-                    <a href="https://wa.me/573222824941?text=Hola%2C%20quiero%20registrarme%20como%20conductor%20en%20ServiCarga"
-                        target="_blank" class="btn btn-whatsapp"
-                        style="width: auto; padding: 8px 20px; margin-top: 10px;">
-                        <i class="fab fa-whatsapp"></i> Registrarme
+                    <a href="pages/register.html" class="btn btn-call">
+                        Únete gratis
                     </a>
                 </div>
             </div>
@@ -186,4 +182,5 @@
 
     <script type="module" src="js/index.js"></script>
 </body>
+
 </html>
