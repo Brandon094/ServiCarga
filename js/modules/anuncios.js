@@ -35,10 +35,10 @@ export async function loadCategorias() {
 export function createAnuncioCard(anuncio, categoria) {
     const card = document.createElement('div');
     card.className = 'anuncio-card';
-    
+
     const whatsappNumber = anuncio.whatsapp.replace(/[^0-9]/g, '');
     const phoneNumber = anuncio.phone.replace(/[^0-9]/g, '');
-    
+
     card.innerHTML = `
         <div class="anuncio-header" style="background: ${categoria?.color || '#667eea'}20">
             <i class="fas ${anuncio.icon || categoria?.icon || 'fa-store'}"></i>
@@ -58,7 +58,7 @@ export function createAnuncioCard(anuncio, categoria) {
             </a>
         </div>
     `;
-    
+
     return card;
 }
 
@@ -92,14 +92,14 @@ function moveToSlide(container, index, totalSlides) {
     const track = container.querySelector('.anuncios-carousel-track');
     const slides = container.querySelector('.anuncios-carousel-slides');
     const dots = container.querySelectorAll('.carousel-dot');
-    
+
     if (!slides) return;
-    
+
     const slideWidth = slides.children[0]?.offsetWidth || 0;
     const newPosition = -index * slideWidth;
-    
+
     slides.style.transform = `translateX(${newPosition}px)`;
-    
+
     // Actualizar dots activos
     dots.forEach((dot, i) => {
         if (i === index) {
@@ -113,7 +113,7 @@ function moveToSlide(container, index, totalSlides) {
 // Función para iniciar el carrusel automático
 function startAutoSlide(container, totalSlides, intervalTime = 5000) {
     if (intervaloActual) clearInterval(intervaloActual);
-    
+
     intervaloActual = setInterval(() => {
         indiceActual = (indiceActual + 1) % totalSlides;
         moveToSlide(container, indiceActual, totalSlides);
@@ -123,62 +123,62 @@ function startAutoSlide(container, totalSlides, intervalTime = 5000) {
 // Función para renderizar carrusel de anuncios
 export async function renderAnunciosDestacados(container) {
     if (!container) return;
-    
+
     try {
         const [anuncios, categorias] = await Promise.all([
             loadAnuncios(),
             loadCategorias()
         ]);
-        
+
         // Guardar datos para uso global
         anunciosData = anuncios;
-        
+
         // Filtrar anuncios destacados (si hay pocos, mostrar todos)
         let destacados = anuncios.filter(a => a.featured === true);
         if (destacados.length === 0) {
             destacados = anuncios.slice(0, 5);
         }
-        
+
         if (destacados.length === 0) {
             container.style.display = 'none';
             return;
         }
-        
+
         // Limpiar contenedor
         container.innerHTML = '';
-        
+
         // Título
         const titulo = document.createElement('h3');
         titulo.className = 'anuncios-titulo';
         titulo.innerHTML = '<i class="fas fa-star"></i> Negocios Destacados <i class="fas fa-star"></i>';
         container.appendChild(titulo);
-        
+
         // Crear estructura del carrusel
         container.insertAdjacentHTML('beforeend', createCarouselStructure());
-        
+
         const carouselContainer = container.querySelector('.anuncios-carousel-container');
         const slidesContainer = container.querySelector('.anuncios-carousel-slides');
         const dotsContainer = container.querySelector('.carousel-dots');
-        
+
         // Crear cada slide (3 anuncios por slide para escritorio, 1 para móvil)
         const anunciosPorSlide = window.innerWidth >= 768 ? 3 : 1;
         const slides = [];
-        
+
         for (let i = 0; i < destacados.length; i += anunciosPorSlide) {
             const slide = document.createElement('div');
             slide.className = 'carousel-slide';
-            
+
             const slideAnuncios = destacados.slice(i, i + anunciosPorSlide);
             slideAnuncios.forEach(anuncio => {
                 const categoria = categorias.find(c => c.id === anuncio.category);
                 const card = createAnuncioCard(anuncio, categoria);
                 slide.appendChild(card);
             });
-            
+
             slidesContainer.appendChild(slide);
             slides.push(slide);
         }
-        
+
         // Crear dots de navegación
         for (let i = 0; i < slides.length; i++) {
             const dot = document.createElement('button');
@@ -195,11 +195,11 @@ export async function renderAnunciosDestacados(container) {
             });
             dotsContainer.appendChild(dot);
         }
-        
+
         // Botones de navegación
         const prevBtn = carouselContainer.querySelector('.carousel-prev');
         const nextBtn = carouselContainer.querySelector('.carousel-next');
-        
+
         prevBtn.addEventListener('click', () => {
             indiceActual = (indiceActual - 1 + slides.length) % slides.length;
             moveToSlide(carouselContainer, indiceActual, slides.length);
@@ -208,7 +208,7 @@ export async function renderAnunciosDestacados(container) {
                 startAutoSlide(carouselContainer, slides.length, 5000);
             }
         });
-        
+
         nextBtn.addEventListener('click', () => {
             indiceActual = (indiceActual + 1) % slides.length;
             moveToSlide(carouselContainer, indiceActual, slides.length);
@@ -217,25 +217,25 @@ export async function renderAnunciosDestacados(container) {
                 startAutoSlide(carouselContainer, slides.length, 5000);
             }
         });
-        
+
         // Iniciar carrusel automático
         startAutoSlide(carouselContainer, slides.length, 5000);
-        
+
         // Pausar al pasar el mouse
         carouselContainer.addEventListener('mouseenter', () => {
             if (intervaloActual) clearInterval(intervaloActual);
         });
-        
+
         carouselContainer.addEventListener('mouseleave', () => {
             startAutoSlide(carouselContainer, slides.length, 5000);
         });
-        
+
         // Manejar resize de ventana
         window.addEventListener('resize', () => {
             // Recargar el carrusel para ajustar el número de anuncios por slide
             renderAnunciosDestacados(container);
         });
-        
+
     } catch (error) {
         console.error('Error renderizando anuncios:', error);
         container.innerHTML = '<p class="error-anuncios">Error al cargar los anuncios</p>';

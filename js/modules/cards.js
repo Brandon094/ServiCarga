@@ -36,7 +36,7 @@ function getGallerySlides(vehicleType, vehicleIcon, galleryImages = null) {
 
 function createGalleryHtml(vehicleType, vehicleIcon, galleryImages = null) {
     const numSlides = (galleryImages && galleryImages.length > 0) ? galleryImages.length : 1;
-    const dots = Array.from({ length: numSlides }, (_, i) => 
+    const dots = Array.from({ length: numSlides }, (_, i) =>
         `<button type="button" class="gallery-dot${i === 0 ? ' active' : ''}" data-index="${i}" aria-label="Imagen ${i + 1}"></button>`
     ).join('');
 
@@ -61,9 +61,9 @@ function createGalleryHtml(vehicleType, vehicleIcon, galleryImages = null) {
 export function createContactCard(driver, vehicleType, vehicleIcon = 'fa-truck') {
     const card = document.createElement('div');
     card.className = 'contact-card';
-    
+
     const whatsappNumber = driver.phone.replace(/[^0-9]/g, '');
-    
+
     card.innerHTML = `
         <h3>
             <span class="driver-icon"><i class="fas fa-user-tie"></i></span>
@@ -92,10 +92,10 @@ export function createContactCard(driver, vehicleType, vehicleIcon = 'fa-truck')
             </a>
         </div>
     `;
-    
+
     const callBtn = card.querySelector('.btn-call');
     const whatsappBtn = card.querySelector('.btn-whatsapp');
-    
+
     callBtn.addEventListener('click', () => {
         trackDriverContact(
             driver.id,
@@ -104,7 +104,7 @@ export function createContactCard(driver, vehicleType, vehicleIcon = 'fa-truck')
             vehicleType
         );
     });
-    
+
     whatsappBtn.addEventListener('click', () => {
         trackDriverContact(
             driver.id,
@@ -119,7 +119,7 @@ export function createContactCard(driver, vehicleType, vehicleIcon = 'fa-truck')
     const prevBtn = card.querySelector('.gallery-prev');
     const nextBtn = card.querySelector('.gallery-next');
     const gallery = card.querySelector('.vehicle-gallery');
-    
+
     let currentIndex = 0;
     let touchStartX = 0;
     let touchEndX = 0;
@@ -170,6 +170,6 @@ export function createContactCard(driver, vehicleType, vehicleIcon = 'fa-truck')
             }
         }
     }
-    
+
     return card;
 }
