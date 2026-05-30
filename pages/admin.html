@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Administrativo - ServiCarga</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/admin.css">
+</head>
+
+<body>
+    <div class="admin-header">
+        <div class="logo-area">
+            <h1><i class="fas fa-truck-fast"></i> ServiCarga - Admin</h1>
+            <p>Gestión de solicitudes de conductores</p>
+        </div>
+        <div class="stats">
+            <div class="stat-card">
+                <div class="number" id="totalCount">0</div>
+                <div class="label">Total</div>
+            </div>
+            <div class="stat-card">
+                <div class="number" id="pendienteCount">0</div>
+                <div class="label">Pendientes</div>
+            </div>
+            <div class="stat-card">
+                <div class="number" id="aprobadoCount">0</div>
+                <div class="label">Aprobados</div>
+            </div>
+        </div>
+        <button class="logout-btn" id="logoutBtn">
+            <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+        </button>
+    </div>
+
+    <div class="filters">
+        <select id="filtroEstado">
+            <option value="todos">📋 Todos los estados</option>
+            <option value="pendiente">⏳ Pendientes</option>
+            <option value="aprobado">✅ Aprobados</option>
+            <option value="rechazado">❌ Rechazados</option>
+        </select>
+        <input type="text" id="buscador" placeholder="🔍 Buscar por nombre o teléfono...">
+        <button class="refresh-btn" onclick="cargarSolicitudes()">
+            <i class="fas fa-sync-alt"></i> Actualizar
+        </button>
+    </div>
+
+    <div id="solicitudesContainer" class="solicitudes-container">
+        <div class="loading">
+            <i class="fas fa-spinner"></i>
+            <p>Cargando solicitudes...</p>
+        </div>
+    </div>
+
+    <div id="modal" class="modal">
+        <span class="modal-close" onclick="cerrarModal()">&times;</span>
+        <img id="modalImg" src="" alt="Foto grande">
+    </div>
+
+    <script type="module" src="/js/admin.js"></script>
+</body>
+
+</html>
