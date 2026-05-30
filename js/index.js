@@ -12,7 +12,7 @@ import { renderAnunciosDestacados } from './modules/anuncios.js';
 export function toggleTheme() {
     const body = document.body;
     const isDark = body.classList.contains('dark-theme');
-    
+
     if (isDark) {
         body.classList.remove('dark-theme');
         localStorage.setItem('theme', 'light');
@@ -22,10 +22,10 @@ export function toggleTheme() {
         localStorage.setItem('theme', 'dark');
         updateThemeButton(true);
     }
-    
+
     // Disparar evento personalizado para notificar a otros componentes
-    window.dispatchEvent(new CustomEvent('themeChanged', { 
-        detail: { isDark: !isDark } 
+    window.dispatchEvent(new CustomEvent('themeChanged', {
+        detail: { isDark: !isDark }
     }));
 }
 
@@ -35,11 +35,11 @@ export function toggleTheme() {
 function updateThemeButton(isDark) {
     const themeButton = document.getElementById('theme-button');
     const themeCheckbox = document.getElementById('theme-toggle');
-    
+
     if (themeButton) {
         const icon = themeButton.querySelector('i');
         const span = themeButton.querySelector('span');
-        
+
         if (isDark) {
             if (icon) icon.className = 'fas fa-sun';
             if (span) span.textContent = 'Modo claro';
@@ -48,7 +48,7 @@ function updateThemeButton(isDark) {
             if (span) span.textContent = 'Modo oscuro';
         }
     }
-    
+
     if (themeCheckbox) {
         themeCheckbox.checked = isDark;
     }
@@ -60,10 +60,10 @@ function updateThemeButton(isDark) {
 export function initTheme() {
     const savedTheme = localStorage.getItem('theme');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
+
     // Determinar el tema inicial
     const isDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
-    
+
     if (isDark) {
         document.body.classList.add('dark-theme');
         updateThemeButton(true);
@@ -71,7 +71,7 @@ export function initTheme() {
         document.body.classList.remove('dark-theme');
         updateThemeButton(false);
     }
-    
+
     // Escuchar cambios en preferencias del sistema
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
         // Solo cambiar si no hay preferencia guardada
@@ -95,7 +95,7 @@ export function createThemeButton() {
     if (document.querySelector('#theme-button') || document.querySelector('.theme-switch-wrapper')) {
         return;
     }
-    
+
     // Crear wrapper del switch
     const wrapper = document.createElement('div');
     wrapper.className = 'theme-switch-wrapper';
@@ -109,9 +109,9 @@ export function createThemeButton() {
         </label>
         <span class="theme-label">Modo oscuro</span>
     `;
-    
+
     document.body.appendChild(wrapper);
-    
+
     const checkbox = document.getElementById('theme-toggle');
     if (checkbox) {
         // IMPORTANTE: Usar la función toggleTheme de este archivo
@@ -124,27 +124,27 @@ export function createThemeButton() {
 // Función principal para cargar todos los datos
 async function loadAllDrivers() {
     const container = document.getElementById('drivers-container');
-    
+
     if (!container) {
         console.error('No se encontró el contenedor de conductores');
         return;
     }
-    
+
     // Mostrar loading
     showLoading(container);
-    
+
     try {
         // Cargar todas las categorías
         const validCategories = await loadAllCategories(categories);
-        
+
         if (validCategories.length === 0) {
             showEmpty(container);
             return;
         }
-        
+
         // Limpiar contenedor
         container.innerHTML = '';
-        
+
         // Agregar cada categoría al contenedor
         validCategories.forEach(categoryData => {
             const section = createCategorySection(categoryData);
@@ -152,11 +152,11 @@ async function loadAllDrivers() {
                 container.appendChild(section);
             }
         });
-        
+
         // Mostrar mensaje de éxito en consola
         const totalDrivers = validCategories.reduce((sum, cat) => sum + cat.drivers.length, 0);
         console.log(`✅ Cargados ${totalDrivers} conductores en ${validCategories.length} categorías`);
-        
+
     } catch (error) {
         console.error('Error al cargar los conductores:', error);
         showError(container, 'Error al cargar los conductores');
@@ -175,12 +175,12 @@ function createAnunciosContainer() {
 function insertAnunciosContainer() {
     const welcomeSection = document.querySelector('.welcome-section');
     const existingContainer = document.getElementById('anuncios-destacados-container');
-    
+
     // Si ya existe el contenedor, no lo creamos de nuevo
     if (existingContainer) return existingContainer;
-    
+
     const anunciosContainer = createAnunciosContainer();
-    
+
     if (welcomeSection) {
         welcomeSection.insertAdjacentElement('afterend', anunciosContainer);
     } else {
@@ -190,7 +190,7 @@ function insertAnunciosContainer() {
             driversSection.insertAdjacentElement('beforebegin', anunciosContainer);
         }
     }
-    
+
     return anunciosContainer;
 }
 
@@ -206,22 +206,22 @@ function updateCurrentYear() {
 document.addEventListener('DOMContentLoaded', async () => {
     // Inicializar tema (antes de cargar cualquier contenido)
     initTheme();
-    
+
     // Crear botón de tema
     createThemeButton();
-    
+
     // Actualizar el año en el footer
     updateCurrentYear();
-    
+
     // Cargar conductores
     await loadAllDrivers();
-    
+
     // Crear e insertar contenedor de anuncios
     const anunciosContainer = insertAnunciosContainer();
-    
+
     // Renderizar anuncios destacados
     await renderAnunciosDestacados(anunciosContainer);
-    
+
     console.log('✅ ServiCarga inicializado correctamente');
 });
 
