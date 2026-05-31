@@ -1,8 +1,9 @@
+// firebase.js - Configuración central de Firebase
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-app.js";
-
 import { getFirestore } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-firestore.js";
+import { getAuth } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-auth.js";
+import { getStorage } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-storage.js";
 
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
     apiKey: "AIzaSyB1i55B6-ibO5IW4wCcYKKVtTR-xLqeKNU",
     authDomain: "servicargahuila.firebaseapp.com",
@@ -13,6 +14,11 @@ const firebaseConfig = {
     measurementId: "G-PQE1DTKEQY"
 };
 
+// Inicializar Firebase
 const app = initializeApp(firebaseConfig);
 
+// Exportar servicios
 export const db = getFirestore(app);
+export const auth = getAuth(app);
+export const storage = getStorage(app);
+export default app;
