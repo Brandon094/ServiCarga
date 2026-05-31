@@ -1,113 +1,235 @@
-.login-container {
-    max-width: 420px;
-    width: 100%;
+/* ========================================
+   ADMIN LOGIN - VERSIÓN PROFESIONAL
+   Totalmente consistente con el diseño principal
+   (Paleta: Azul oscuro + Naranja, Glassmorphism)
+======================================== */
+
+/* === VARIABLES (HEREDADAS DEL TEMA PRINCIPAL) === */
+:root {
+    --navy-900: #061426;
+    --navy-800: #0b2b3f;
+    --accent: #ff7a1a;
+    --accent-dark: #e66705;
+    --accent-glow: rgba(255, 122, 26, 0.25);
+    
+    --primary-gradient: linear-gradient(180deg, var(--navy-800) 0%, #041526 100%);
+    --accent-gradient: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+    
+    --bg-glass: rgba(255, 255, 255, 0.08);
+    --bg-glass-dark: rgba(0, 0, 0, 0.45);
+    --card-bg: rgba(11, 43, 63, 0.75);
+    --card-border: rgba(255, 255, 255, 0.1);
+    
+    --text-primary: #ffffff;
+    --text-secondary: rgba(255, 255, 255, 0.85);
+    --text-muted: rgba(255, 255, 255, 0.6);
+    
+    --success: #1f8f3c;
+    --danger: #ef4444;
+    --warning: #f59e0b;
+    
+    --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.25);
+    --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.35);
+    --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.4);
+    
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 20px;
+    --radius-xl: 24px;
+    
+    --transition-fast: 150ms ease;
+    --transition-base: 260ms ease;
 }
 
+/* === CONTENEDOR PRINCIPAL === */
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(800px 500px at 10% 10%, rgba(255, 122, 26, 0.1), transparent 60%), var(--primary-gradient);
+    background-attachment: fixed;
+    padding: 20px;
+}
+
+/* === TARJETA DE LOGIN (GLASS CARD) === */
 .login-card {
-    background: white;
-    border-radius: 24px;
-    padding: 40px;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-    animation: fadeInUp 0.4s ease;
+    max-width: 440px;
+    width: 100%;
+    background: var(--card-bg);
+    backdrop-filter: blur(16px);
+    border-radius: var(--radius-xl);
+    padding: 44px 40px;
+    box-shadow: var(--shadow-xl);
+    animation: fadeInUp 0.5s ease-out;
+    border: 1px solid var(--card-border);
+    transition: var(--transition-base);
+}
+
+.login-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    border-color: rgba(255, 122, 26, 0.3);
 }
 
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(30px);
     }
-
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
+/* === HEADER DEL LOGIN === */
 .login-header {
     text-align: center;
-    margin-bottom: 32px;
+    margin-bottom: 36px;
 }
 
 .login-header i {
-    font-size: 3rem;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    font-size: 3.5rem;
+    background: var(--accent-gradient);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     margin-bottom: 16px;
+    filter: drop-shadow(0 0 8px rgba(255, 122, 26, 0.3));
 }
 
 .login-header h1 {
-    font-size: 1.75rem;
-    color: #1e293b;
+    font-size: 1.85rem;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
     margin-bottom: 8px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
 }
 
 .login-header p {
-    color: #64748b;
-    font-size: 0.875rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-weight: 500;
 }
 
+/* === FORMULARIO === */
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 24px;
 }
 
 .form-group label {
     display: block;
     margin-bottom: 8px;
     font-weight: 600;
-    color: #334155;
-    font-size: 0.875rem;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    letter-spacing: 0.3px;
 }
 
+/* === INPUT CON ICONO === */
 .input-icon {
     position: relative;
 }
 
 .input-icon i {
     position: absolute;
-    left: 14px;
+    left: 16px;
     top: 50%;
     transform: translateY(-50%);
-    color: #94a3b8;
+    color: var(--accent);
+    z-index: 1;
+    font-size: 1.1rem;
+    transition: var(--transition-fast);
 }
 
 .input-icon input {
     width: 100%;
-    padding: 12px 16px 12px 42px;
-    border: 2px solid #e2e8f0;
-    border-radius: 12px;
-    font-size: 0.875rem;
-    transition: all 0.2s;
+    padding: 14px 16px 14px 46px;
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    border-radius: var(--radius-md);
+    font-size: 0.95rem;
+    transition: var(--transition-fast);
     font-family: inherit;
+    background: rgba(0, 0, 0, 0.35);
+    color: var(--text-primary);
+    backdrop-filter: blur(4px);
+    box-sizing: border-box;
+}
+
+.input-icon input::placeholder {
+    color: var(--text-muted);
+    font-weight: 400;
+}
+
+.input-icon input:hover {
+    border-color: rgba(255, 122, 26, 0.5);
+    background: rgba(0, 0, 0, 0.5);
 }
 
 .input-icon input:focus {
     outline: none;
-    border-color: #667eea;
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    border-color: var(--accent);
+    background: rgba(0, 0, 0, 0.6);
+    box-shadow: 0 0 0 4px var(--accent-glow);
 }
 
+.input-icon input:focus + i {
+    color: var(--accent);
+    transform: translateY(-50%) scale(1.05);
+}
+
+/* === BOTÓN DE LOGIN === */
 .login-btn {
     width: 100%;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: var(--accent-gradient);
     color: white;
     border: none;
-    padding: 14px;
-    border-radius: 12px;
+    padding: 14px 20px;
+    border-radius: var(--radius-md);
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: 700;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: var(--transition-base);
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 10px;
+    font-family: inherit;
+    margin-top: 8px;
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 0.5px;
+}
+
+/* Efecto shimmer en el botón */
+.login-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s ease;
+}
+
+.login-btn:hover::before {
+    left: 100%;
 }
 
 .login-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(255, 122, 26, 0.4);
+    filter: brightness(1.05);
+}
+
+.login-btn:active {
+    transform: translateY(0);
 }
 
 .login-btn:disabled {
@@ -116,37 +238,174 @@
     transform: none;
 }
 
+.login-btn:disabled::before {
+    display: none;
+}
+
+/* === MENSAJE DE ERROR === */
 .error-message {
-    background: #fef2f2;
-    color: #dc2626;
-    padding: 12px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    font-size: 0.875rem;
+    background: rgba(239, 68, 68, 0.15);
+    backdrop-filter: blur(8px);
+    color: #fecaca;
+    padding: 12px 16px;
+    border-radius: var(--radius-sm);
+    margin-bottom: 24px;
+    font-size: 0.85rem;
     display: none;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    animation: shakeError 0.4s ease;
+}
+
+@keyframes shakeError {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
 }
 
 .error-message.show {
     display: flex;
 }
 
+.error-message i {
+    font-size: 1rem;
+    color: #f87171;
+}
+
+/* === ENLACE DE VOLVER === */
 .back-link {
     text-align: center;
-    margin-top: 24px;
+    margin-top: 28px;
 }
 
 .back-link a {
-    color: #64748b;
+    color: var(--text-secondary);
     text-decoration: none;
-    font-size: 0.875rem;
+    font-size: 0.85rem;
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    transition: color 0.2s;
+    gap: 8px;
+    transition: var(--transition-fast);
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: var(--radius-full);
+    background: rgba(255, 255, 255, 0.03);
 }
 
 .back-link a:hover {
-    color: #667eea;
+    color: var(--accent);
+    background: rgba(255, 122, 26, 0.1);
+    transform: translateX(-4px);
+}
+
+.back-link a i {
+    font-size: 0.8rem;
+    transition: var(--transition-fast);
+}
+
+.back-link a:hover i {
+    transform: translateX(-3px);
+}
+
+/* === LOADING SPINNER === */
+.loading-spinner {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spinLogin 0.6s linear infinite;
+}
+
+@keyframes spinLogin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 640px) {
+    .login-card {
+        padding: 32px 28px;
+        max-width: 400px;
+    }
+    
+    .login-header h1 {
+        font-size: 1.6rem;
+    }
+    
+    .login-header i {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-container {
+        padding: 16px;
+    }
+    
+    .login-card {
+        padding: 28px 24px;
+        border-radius: var(--radius-lg);
+    }
+    
+    .login-header {
+        margin-bottom: 28px;
+    }
+    
+    .login-header h1 {
+        font-size: 1.4rem;
+    }
+    
+    .login-header i {
+        font-size: 2.5rem;
+    }
+    
+    .login-header p {
+        font-size: 0.8rem;
+    }
+    
+    .form-group {
+        margin-bottom: 18px;
+    }
+    
+    .input-icon input {
+        padding: 12px 14px 12px 42px;
+        font-size: 0.9rem;
+    }
+    
+    .login-btn {
+        padding: 12px 16px;
+        font-size: 0.9rem;
+    }
+    
+    .back-link {
+        margin-top: 22px;
+    }
+}
+
+/* === ACCESIBILIDAD === */
+button:focus-visible,
+input:focus-visible,
+a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+/* === EFECTO DE BRILLO EN EL BORDE (OPCIONAL) === */
+.login-card {
+    position: relative;
+}
+
+.login-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--accent-gradient);
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
 }
