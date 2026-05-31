@@ -41,13 +41,15 @@
     </div>
 
     <div class="filters">
-        <select id="filtroEstado">
-            <option value="todos"><i class="fas fa-list"></i> Todos los estados</option>
-            <option value="pendiente"><i class="fas fa-clock"></i> Pendientes</option>
-            <option value="aprobado"><i class="fas fa-check-circle"></i> Aprobados</option>
-            <option value="rechazado"><i class="fas fa-times-circle"></i> Rechazados</option>
-        </select>
-        <input type="text" id="buscador" placeholder="🔍 Buscar por nombre o teléfono...">
+        <div class="filters-left">
+            <select id="filtroEstado">
+                <option value="todos">📋 Todos los estados</option>
+                <option value="pendiente">⏳ Pendientes</option>
+                <option value="aprobado">✅ Aprobados</option>
+                <option value="rechazado">❌ Rechazados</option>
+            </select>
+            <input type="text" id="buscador" placeholder="🔍 Buscar por nombre o teléfono...">
+        </div>
         <button class="refresh-btn" id="refreshBtn">
             <i class="fas fa-sync-alt"></i> Actualizar
         </button>
