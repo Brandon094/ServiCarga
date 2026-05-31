@@ -138,16 +138,16 @@ function renderizarSolicitudes(solicitudes) {
                     <span>${formatearFecha(solicitud.fechaRegistro)}</span>
                 </div>
                 
-                ${solicitud.fotos && solicitud.fotos.length > 0 ? `
+                ${solicitud.galeria && solicitud.galeria.length > 0 ? `
                     <div class="info-row">
                         <i class="fas fa-images"></i>
-                        <strong>Fotos (${solicitud.fotos.length}):</strong>
+                        <strong>Fotos (${solicitud.galeria.length}):</strong>
                     </div>
                     <div class="fotos-gallery">
-                        ${solicitud.fotos.slice(0, 4).map((foto, idx) => `
+                        ${solicitud.galeria.slice(0, 4).map((foto, idx) => `
                             <img src="${foto}" class="foto-miniatura" onclick="verFoto('${foto.replace(/'/g, "\\'")}')" alt="Foto ${idx + 1}" loading="lazy">
                         `).join('')}
-                        ${solicitud.fotos.length > 4 ? `<div class="foto-mas" onclick="verMasFotos(${JSON.stringify(solicitud.fotos).replace(/"/g, '&quot;')})">+${solicitud.fotos.length - 4}</div>` : ''}
+                        ${solicitud.galeria.length > 4 ? `<div class="foto-mas" onclick="verMasFotos(${JSON.stringify(solicitud.galeria).replace(/"/g, '&quot;')})">+${solicitud.galeria.length - 4}</div>` : ''}
                     </div>
                 ` : `
                     <div class="info-row">
@@ -245,7 +245,7 @@ window.cambiarEstado = async function (id, nuevoEstado) {
                     nombre: solicitudData.nombre,
                     telefono: solicitudData.telefono,
                     vehiculo: solicitudData.tipoVehiculo || 'No especificado',
-                    fotos: solicitudData.fotos || [],
+                    galeria: solicitudData.galeria || [],
                     fechaRegistro: new Date(),
                     estado: 'activo',
                     activo: true,
