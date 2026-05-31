@@ -6,11 +6,11 @@ export function createCategorySection(categoryData) {
     if (!categoryData || !categoryData.drivers || categoryData.drivers.length === 0) {
         return null;
     }
-    
+
     const section = document.createElement('div');
     section.className = 'driver-category';
     section.id = `category-${categoryData.category.id}`;
-    
+
     const header = document.createElement('div');
     header.className = 'category-header';
     header.innerHTML = `
@@ -18,23 +18,23 @@ export function createCategorySection(categoryData) {
         <h2>${escapeHtml(categoryData.category.name)}</h2>
         <span class="category-count">${categoryData.drivers.length}</span>
     `;
-    
+
     const grid = document.createElement('div');
     grid.className = 'drivers-grid';
-    
+
     // Pasar el ícono del vehículo desde la categoría
     categoryData.drivers.forEach(driver => {
         const card = createContactCard(
-            driver, 
+            driver,
             categoryData.category.vehicleType,
             categoryData.category.vehicleIcon
         );
         grid.appendChild(card);
     });
-    
+
     section.appendChild(header);
     section.appendChild(grid);
-    
+
     return section;
 }
 
@@ -80,7 +80,7 @@ export function showEmpty(container) {
 export function toggleTheme() {
     const body = document.body;
     const isDark = body.classList.contains('dark-theme');
-    
+
     if (isDark) {
         body.classList.remove('dark-theme');
         localStorage.setItem('theme', 'light');
@@ -98,17 +98,17 @@ export function toggleTheme() {
 function updateThemeUI(isDark) {
     const themeCheckbox = document.getElementById('theme-toggle');
     const themeButton = document.getElementById('theme-button');
-    
+
     // Actualizar checkbox si existe
     if (themeCheckbox) {
         themeCheckbox.checked = isDark;
     }
-    
+
     // Actualizar botón simple si existe
     if (themeButton) {
         const icon = themeButton.querySelector('i');
         const span = themeButton.querySelector('span');
-        
+
         if (isDark) {
             if (icon) icon.className = 'fas fa-sun';
             if (span) span.textContent = 'Modo claro';

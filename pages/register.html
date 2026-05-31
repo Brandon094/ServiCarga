@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Conductores - ServiCarga</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/register.css">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5BH8FGWHWQ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-5BH8FGWHWQ');
+    </script>
+
+    <!-- Favicon -->
+    <link rel="icon" href="../img/favicon_io/favicon.ico" type="image/x-icon">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Datatype:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="register-container">
+
+        <div class="register-card">
+
+            <div class="register-header">
+
+                <a href="../index.html" class="logo-link">
+                    <img src="../img/logo.png" alt="ServiCarga" class="logo">
+                </a>
+
+                <h1>
+                    <i class="fas fa-truck-fast"></i>
+                    Únete a ServiCarga
+                </h1>
+
+            </div>
+
+            <p class="register-subtitle">
+                Registra tu vehículo gratis y conecta con clientes en Nátaga.
+            </p>
+
+            <!-- CHIPS HORIZONTALES - Más compacto y moderno -->
+            <div class="chips-container">
+                <div class="chip">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Registro gratuito</span>
+                </div>
+                <div class="chip">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>Número WhatsApp</span>
+                </div>
+                <div class="chip">
+                    <i class="fas fa-camera"></i>
+                    <span>3 fotografías</span>
+                </div>
+                <div class="chip">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Verificación manual</span>
+                </div>
+            </div>
+
+            <div id="mensaje"></div>
+
+            <form id="driverForm">
+
+                <div class="form-group">
+                    <label for="nombre">
+                        <i class="fas fa-user"></i>
+                        Nombre completo
+                    </label>
+
+                    <div class="input-icon">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="nombre" placeholder="Ej: Juan Carlos Pérez" maxlength="100" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="telefono">
+                        <i class="fab fa-whatsapp"></i>
+                        Número de WhatsApp
+                    </label>
+
+                    <div class="input-icon">
+                        <i class="fab fa-whatsapp"></i>
+                        <input type="tel" id="telefono" placeholder="Ej: 3211234567" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="vehiculo">
+                        <i class="fas fa-truck"></i>
+                        Tipo de vehículo
+                    </label>
+
+                    <div class="input-icon">
+                        <i class="fas fa-truck"></i>
+
+                        <select id="vehiculo" required>
+                            <option value="">Selecciona una opción</option>
+                            <option value="motos">Moto</option>
+                            <option value="motocarros">Motocarro</option>
+                            <option value="tuktuk">TukTuk</option>
+                            <option value="camionetas">Camioneta</option>
+                            <option value="camion">Camión</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>
+                        <i class="fas fa-camera"></i>
+                        Fotografías del vehículo (máximo 3)
+                    </label>
+
+                    <!-- Zona visual para subir fotos -->
+                    <div class="photo-zone" onclick="document.getElementById('fotos').click()">
+                        <div class="photo-icon">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                        </div>
+                        <p>📸 Haz clic para subir tus fotos</p>
+                        <small>Formatos: JPG, PNG - Máx. 5MB cada una</small>
+                    </div>
+
+                    <!-- Input oculto (se activa al hacer clic en photo-zone) -->
+                    <input type="file" id="fotos" multiple accept="image/jpeg,image/png,image/jpg"
+                        style="display: none;">
+
+                    <!-- Contenedor para las miniaturas -->
+                    <div class="preview-container" id="previewContainer"></div>
+                    <div id="contadorFotos"></div>
+                </div>
+
+                <div class="checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="confirmacion" required>
+                        <span>Confirmo que este número de WhatsApp es correcto.</span>
+                    </label>
+                </div>
+
+                <input type="hidden" id="estado" value="pendiente">
+
+                <button type="submit" class="btn-submit">
+                    <i class="fas fa-paper-plane"></i> Enviar solicitud
+                </button>
+
+                <a href="../index.html" class="btn-back">
+                    <i class="fas fa-arrow-left"></i> Volver a ServiCarga
+                </a>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <script type="module" src="/js/modules/register.js"></script>
+
+</body>
+
+</html>
