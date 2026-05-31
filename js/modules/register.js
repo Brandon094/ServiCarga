@@ -1,4 +1,3 @@
-// register.js - Registro de conductores con imágenes en Base64
 import { db } from '/js/modules/firebase.js';
 import { collection, addDoc } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-firestore.js";
 
@@ -64,6 +63,18 @@ function validarTelefono(telefono) {
 const inputFotos = document.getElementById('fotos');
 const previewContainer = document.getElementById('previewContainer');
 const contadorFotos = document.getElementById('contadorFotos');
+const fotoOpcionalMsg = document.getElementById('fotoOpcionalMsg');
+
+// Mostrar mensaje opcional si existe el elemento
+if (fotoOpcionalMsg && inputFotos) {
+    inputFotos.addEventListener('change', function() {
+        if (inputFotos.files.length > 0) {
+            fotoOpcionalMsg.style.opacity = '0.5';
+        } else {
+            fotoOpcionalMsg.style.opacity = '1';
+        }
+    });
+}
 
 if (inputFotos) {
     inputFotos.addEventListener('change', function (e) {
@@ -74,7 +85,7 @@ if (inputFotos) {
 
         // Limitar a 3 fotos
         if (archivos.length > MAX_FOTOS) {
-            alert(`Solo puedes subir máximo ${MAX_FOTOS} fotografías`);
+            mostrarMensaje(`📸 Solo puedes subir máximo ${MAX_FOTOS} fotografías`, 'error');
             inputFotos.value = '';
             if (contadorFotos) contadorFotos.textContent = '';
             return;
@@ -82,7 +93,11 @@ if (inputFotos) {
 
         // Mostrar contador
         if (contadorFotos) {
-            contadorFotos.textContent = `📸 ${archivos.length} / ${MAX_FOTOS} fotografías seleccionadas`;
+            if (archivos.length === 0) {
+                contadorFotos.textContent = `📸 Sin fotos (opcional)`;
+            } else {
+                contadorFotos.textContent = `📸 ${archivos.length} / ${MAX_FOTOS} fotografías seleccionadas`;
+            }
         }
 
         // Generar preview de cada imagen
@@ -117,7 +132,7 @@ form.addEventListener('submit', async (e) => {
     const estado = document.getElementById('estado').value;
     const archivos = Array.from(document.getElementById('fotos').files);
 
-    // 2. Validaciones
+    // 2. Validaciones básicas (fotos NO son obligatorias)
     if (!nombre) {
         mostrarMensaje('❌ Por favor ingresa tu nombre completo', 'error');
         return;
@@ -144,17 +159,12 @@ form.addEventListener('submit', async (e) => {
         return;
     }
 
-    if (archivos.length === 0) {
-        mostrarMensaje('❌ Por favor sube al menos 1 fotografía de tu vehículo', 'error');
-        return;
-    }
-
     if (archivos.length > MAX_FOTOS) {
         mostrarMensaje(`❌ Solo puedes subir máximo ${MAX_FOTOS} fotografías`, 'error');
         return;
     }
 
-    // Validar tipos de archivo
+    // Validar tipos de archivo (solo si hay archivos)
     const tiposPermitidos = ['image/jpeg', 'image/png', 'image/jpg', 'image/webp'];
     for (const archivo of archivos) {
         if (!tiposPermitidos.includes(archivo.type)) {
@@ -170,36 +180,45 @@ form.addEventListener('submit', async (e) => {
     btnSubmit.disabled = true;
 
     try {
-        // 4. Convertir imágenes a Base64
-        mostrarMensaje('📸 Procesando fotografías...', 'success');
-        const fotosBase64 = await procesarFotos(archivos);
+        let galeria = [];
+        
+        // 4. Convertir imágenes a Base64 SOLO si hay fotos
+        if (archivos.length > 0) {
+            mostrarMensaje('📸 Procesando fotografías...', 'success');
+            galeria = await procesarFotos(archivos);
+        } else {
+            console.log("📷 No se subieron fotos, continuando con galería vacía");
+        }
 
-        // 5. Guardar en Firestore
+        // 5. Guardar en Firestore (SOLO con campo galeria)
         mostrarMensaje('💾 Guardando información...', 'success');
 
         const solicitud = {
             nombre: nombre,
             telefono: telefonoLimpio,
             tipoVehiculo: vehiculo,
-            fotos: fotosBase64,
+            galeria: galeria,              // 🔥 UN SOLO CAMPO: galeria
             estado: estado,
             fechaSolicitud: new Date().toISOString(),
-            fechaRegistro: new Date()
+            fechaRegistro: new Date(),
+            tieneFotos: galeria.length > 0  // Indicador útil para el admin
         };
 
         const docRef = await addDoc(collection(db, "solicitudes"), solicitud);
         console.log("Documento guardado con ID:", docRef.id);
+        console.log(`📸 Fotos: ${galeria.length} imagen(es) subidas`);
 
-        // 6. Éxito
-        mostrarMensaje(
-            '✅ ¡Solicitud enviada con éxito! Revisaremos tus datos y te contactaremos vía WhatsApp en las próximas 24-48 horas.',
-            'success'
-        );
+        // 6. Mensaje personalizado según si tiene fotos o no
+        const mensajeExito = galeria.length > 0
+            ? '✅ ¡Solicitud enviada con éxito! Hemos recibido tus fotos. Revisaremos tus datos y te contactaremos vía WhatsApp en las próximas 24-48 horas.'
+            : '✅ ¡Solicitud enviada con éxito! Puedes agregar fotos más tarde desde tu perfil. Revisaremos tus datos y te contactaremos pronto.';
+        
+        mostrarMensaje(mensajeExito, 'success');
 
         // 7. Limpiar formulario
         form.reset();
         if (previewContainer) previewContainer.innerHTML = '';
-        if (contadorFotos) contadorFotos.innerHTML = '';
+        if (contadorFotos) contadorFotos.innerHTML = '📸 Sin fotos (opcional)';
 
         // Redirigir después de 3 segundos
         setTimeout(() => {
