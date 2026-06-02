@@ -4,13 +4,13 @@
  */
 
 const firebaseConfig = {
-    apiKey: "AIzaSyB1i55B6-ibO5IW4wCcYKKVtTR-xLqeKNU",
-    authDomain: "servicargahuila.firebaseapp.com",
-    projectId: "servicargahuila",
-    storageBucket: "servicargahuila.firebasestorage.app",
-    messagingSenderId: "202344705500",
-    appId: "1:202344705500:web:4366e5d58acfe8e997b319",
-    measurementId: "G-PQE1DTKEQY"
+    apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+    authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+    projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+    storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+    appId: import.meta.env.VITE_FIREBASE_APP_ID,
+    measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
 };
 
 // Versión de Firebase
