@@ -1,0 +1,31 @@
+[
+    {
+        "id": 1,
+        "name": "Yulmer Castañeda 'Gordo'",
+        "phone": "+573144237721",
+        "vehicle": "motocarro",
+        "gallery": [
+            
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Duvan Pito",
+        "phone": "+573219967572",
+        "vehicle": "motocarro",
+        "gallery": [
+            
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Diego Castro",
+        "phone": "+573132775535",
+        "vehicle": "motocarro",
+        "gallery": [
+            "img/gallery/motocarros/diegoCastro1.jpeg",
+            "img/gallery/motocarros/diegoCastro2.jpeg",
+            "img/gallery/motocarros/diegoCastro3.jpeg"
+        ]
+    }
+]

@@ -1,0 +1,86 @@
+[
+    {
+        "id": "tienda",
+        "name": "Tiendas de Barrio",
+        "icon": "fa-store",
+        "color": "#667eea"
+    },
+    {
+        "id": "ferreteria",
+        "name": "Ferreterías",
+        "icon": "fa-tools",
+        "color": "#f59e0b"
+    },
+    {
+        "id": "carniceria",
+        "name": "Carnicerías",
+        "icon": "fa-drumstick-bite",
+        "color": "#ef4444"
+    },
+    {
+        "id": "panaderia",
+        "name": "Panaderías",
+        "icon": "fa-bread-slice",
+        "color": "#f97316"
+    },
+    {
+        "id": "veterinaria",
+        "name": "Veterinarias",
+        "icon": "fa-paw",
+        "color": "#10b981"
+    },
+    {
+        "id": "papeleria",
+        "name": "Papelerías",
+        "icon": "fa-book",
+        "color": "#3b82f6"
+    },
+    {
+        "id": "restaurante",
+        "name": "Restaurantes",
+        "icon": "fa-utensils",
+        "color": "#ec489a"
+    },
+    {
+        "id": "taller",
+        "name": "Talleres Mecánicos",
+        "icon": "fa-wrench",
+        "color": "#6b7280"
+    },
+    {
+        "id": "verduleria",
+        "name": "Frutas y Verduras",
+        "icon": "fa-apple-alt",
+        "color": "#22c55e"
+    },
+    {
+        "id": "farmacia",
+        "name": "Farmacias",
+        "icon": "fa-pills",
+        "color": "#8b5cf6"
+    },
+    {
+        "id": "Studio tatuajes",
+        "name": "Studio tatuajes",
+        "icon": "fa-paint-brush",
+        "color": "#ec489a"
+    },
+    {
+        "id":"carWhash",
+        "name":"Lavadero de motos y carros",
+        "icon":"fa-car",
+        "color":"#f59e0b"
+    },
+    {
+        "id":"perfumeria",
+        "name":"Perfumerías",
+        "icon":"fa-spray-can",
+        "color":"#3b82f6"
+    },
+    {
+        "id":"supermercado",
+        "name":"Supermercados",
+        "icon":"fa-shopping-cart",
+        "color":"#10b981"
+    }
+]

@@ -1,0 +1,129 @@
+[
+    {
+        "id": 1,
+        "name": "Nelson Skin's Tatto",
+        "category": "Studio tatuajes",
+        "description": "Tatuajes personalizados, accesorios. Calidad y creatividad en cada diseño.",
+        "phone": "+573144317568",
+        "whatsapp": "+573144317568",
+        "address": "Carrera 6 #4-09, Nátaga",
+        "icon": "fa-paint-brush",
+        "featured": true
+    },
+    {
+        "id": 2,
+        "name": "Taller Mecánico Daza Motos",
+        "category": "taller",
+        "description": "Mantenimiento, reparación y pintura de motos",
+        "phone": "+573208934413",
+        "whatsapp": "+573208934413",
+        "address": "Vía Principal, Sector El Puente",
+        "icon": "fa-wrench",
+        "featured": true
+    },
+    {
+        "id": 3,
+        "name": "Lavadero de motos y carros",
+        "category": "carWhash",
+        "description": "Lavado y detallado de motos y carros, Servicio rápido y de calidad.",
+        "phone": "+573228533516",
+        "whatsapp": "+573228533516",
+        "address": "Vía Principal, Sector El Puente",
+        "icon": "fa-car",
+        "featured": true
+    },
+    {
+        "id": 4,
+        "name": "Motorepuestos Nataga",
+        "category": [
+            "taller",
+            "tienda"
+        ],
+        "description": "Venta de repuestos de motos, Mantenimiento y reparación de motos.",
+        "phone": "+573157922089",
+        "whatsapp": "+573157922089",
+        "address": "Barrio Centro, Calle 4",
+        "icon": "fa-wrench",
+        "featured": true
+    },
+    {
+        "id": 5,
+        "name": "Taller y Montallantas Tuerca",
+        "category": "taller",
+        "description": "Mantenimiento, reparación y cambio de llantas y servicio de despinchada de motos y carros.",
+        "phone": "+573132891897",
+        "whatsapp": "+573132891897",
+        "address": "Vía Principal, Sector El Puente",
+        "icon": "fa-wrench",
+        "featured": true
+    },
+    {
+        "id": 6,
+        "name": "Esencia de Orquidea - Pefumería y algo más",
+        "category": [
+            "tienda",
+            "perfumeria"
+        ],
+        "description": "Perfumería, cosméticos, accesorios y regalos. Variedad y calidad en un solo lugar.",
+        "phone": "+573203368868",
+        "whatsapp": "+573203368868",
+        "address": "Calle 4 #7-56 Barrio Cristo Rey",
+        "icon": "fa-spray-can",
+        "featured": true
+    },
+    {
+        "id": 7,
+        "name": "Taller Electromecánico Cepeda Motor's",
+        "category": "taller",
+        "description": "Servicio de reparación y mantenimiento de vehículos.",
+        "phone": "+573132520358",
+        "whatsapp": "+573132520358",
+        "address": "Calle 3 #2-10 Barrio Pueblo nuevo",
+        "icon": "fa-wrench",
+        "featured": true
+    },
+    {
+        "id": 8,
+        "name": "Alelash - Tu mirada es nuestra pasión!",
+        "category": "belleza",
+        "description": "Pestañas clasicas y tecnologicas, listing coreano, laminado de cejas, depilacion y diseño de cejas con aplicacion de henna.",
+        "phone": "+573144152047",
+        "whatsapp": "+573144152047",
+        "address": "Calle central, Barrio el progreso",
+        "icon": "fa-eye",
+        "featured": true
+    },
+    {
+        "id": 9,
+        "name": "Mostacho Barber Shop",
+        "category": "belleza",
+        "description": "Servicio de corte y peinado para hombres.",
+        "phone": "+573108131814",
+        "whatsapp": "+573108131814",
+        "address": "Calle 3 #7-19 Barrio el progreso",
+        "icon": "fa-cut",
+        "featured": true
+    },
+    {
+        "id": 10,
+        "name": "Merca Plaza",
+        "category": "supermercado",
+        "description": "Centro de  abastecimiento de productos de la canasta familiar; Donde encuentras granos, pollo, arroz ,Verduras🐔🥕🥬 gaseosa y cerveza 🧃al por mayor y al detal\nContamos con servicio de Nequi y Bancolombia para tu comodidad",
+        "phone": "+573229069576",
+        "whatsapp": "+573229069576",
+        "address": "A un costado de la galeria principal",
+        "icon": "fa-shopping-cart",
+        "featured": true
+    },
+    {
+        "id": 11,
+        "name": "Ferti - Cauca",
+        "category": "agricultura",
+        "description": "Somos la casa del Silicio. Manejamos línea completa para café: Desde Cal para desacidificar, hasta 17-6-18-2 + Silicio para llenar grano en mitaca.",
+        "phone": "+573123142534",
+        "whatsapp": "+573123142534",
+        "address": "Barrio Centro, Calle 4",
+        "icon": "fa-seedling",
+        "featured": true
+    }
+]
