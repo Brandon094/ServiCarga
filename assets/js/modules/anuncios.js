@@ -1,8 +1,8 @@
 // Módulo para manejar los anuncios locales con carrusel automático
 
 // Configuración
-const ANUNCIOS_URL = 'db/anuncios.json';
-const CATEGORIAS_URL = 'db/categorias.json';
+const ANUNCIOS_URL = 'data/anuncios.json';
+const CATEGORIAS_URL = 'data/categorias.json';
 let intervaloActual = null;
 let indiceActual = 0;
 let anunciosData = [];
