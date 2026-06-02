@@ -1,4 +1,4 @@
-import { db } from '/js/modules/firebase.js';
+import { db } from './firebase.js';
 import { collection, addDoc } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-firestore.js";
 
 // DOM elements
