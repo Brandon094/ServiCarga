@@ -1,139 +1,71 @@
 # 🚚 ServiCarga - Nátaga
 
-**Directorio digital para conectar a la comunidad de Nátaga, Colombia, con servicios locales de transporte de carga (motocarros, camionetas y tuktuks).**
+**Directorio digital para conectar con servicios locales de transporte de carga en Nátaga, Colombia.**
 
 [![Responsive](https://img.shields.io/badge/Responsive-Yes-green.svg)](https://github.com/Brandon094/ServiCarga)
+[![Live](https://img.shields.io/badge/Live-Production-brightgreen.svg)](https://brandon094.github.io/ServiCarga/)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-## 📖 Acerca del Proyecto
+## 🎯 ¿Qué es ServiCarga?
 
-ServiCarga es una plataforma web innovadora diseñada específicamente para la comunidad de Nátaga, Huila, Colombia. Nuestro objetivo es facilitar la conexión entre residentes y visitantes con conductores locales de transporte de carga, promoviendo el comercio local y mejorando la accesibilidad a servicios esenciales.
+Una plataforma web sencilla que te ayuda a **encontrar conductores locales** para transporte de carga en Nátaga. 
 
-### 🎯 Problema que Resuelve
+✅ **Busca conductores** por categoría (motocarros, camionetas, camiones)  
+✅ **Contacta directamente** vía teléfono o WhatsApp  
+✅ **Acceso desde cualquier dispositivo** (móvil, tablet, PC)  
+✅ **Información actualizada** en tiempo real
 
-- **Dificultad para encontrar transportistas locales:** Antes, la contratación dependía de referencias personales o llamadas aleatorias.
-- **Falta de información centralizada:** No existía un lugar confiable para consultar servicios disponibles.
-- **Acceso limitado:** Especialmente para personas sin conexiones locales o visitantes.
+## 💡 ¿Cómo usar ServiCarga?
 
-### 💡 Solución
+1. **Abre la aplicación** en tu navegador
+2. **Elige la categoría** de vehículo que necesitas
+3. **Revisa los conductores disponibles** con sus teléfonos
+4. **Contacta directamente** por WhatsApp o llamada
+5. **¡Listo!** Coordina el servicio
 
-Una aplicación web moderna que:
+## ✨ Características
 
-- Lista conductores verificados por categoría de vehículo.
-- Proporciona contacto directo vía teléfono y WhatsApp.
-- Ofrece una interfaz intuitiva y responsive.
-- Garantiza actualización fácil de datos sin modificar código.
+- 📱 **Funciona en móvil:** Diseñado para usar desde tu celular
+- 🚗 **Múltiples categorías:** Motocarros, camionetas, camiones, motos, tuktuks
+- 📞 **Contacto rápido:** Botones directos para llamar o WhatsApp
+- 📢 **Anuncios destacados:** Servicios y promociones especiales
+- 🔄 **Información actualizada:** Se sincroniza automáticamente
 
-## ✨ Características Principales
+## 📂 Páginas Principales
 
-- 📱 **Completamente Responsive:** Optimizado para móviles, tablets y escritorio.
-- 🗂️ **Categorización Clara:** Motocarros, camionetas y tuktuks con iconos distintivos.
-- 📞 **Integración Directa:** Botones de llamada y WhatsApp integrados.
-- ⚡ **Performance Optimizada:** Carga dinámica vía JSON, arquitectura modular ES6+.
-- 🔒 **Seguro y Accesible:** Prevención XSS, navegación por teclado, contrastes adecuados.
-- 🎨 **Diseño Moderno:** Gradientes, animaciones suaves y glassmorphism.
+- **[Inicio](index.html)** → Directorio de conductores
+- **[Registro](pages/register.html)** → Crea tu cuenta
+- [Conductores por categoría] → Filtra por tipo de vehículo
 
-## 🛠️ Stack Tecnológico
+## 🚀 Acceso Rápido
 
-- **Frontend:** HTML5 semántico, CSS3 con variables y animaciones, JavaScript Vanilla (ES6+ Modules).
-- **Recursos Externos:** Font Awesome 6 para iconos, Google Fonts para tipografía.
-- **Datos:** JSON para almacenamiento ligero y fácil mantenimiento.
-- **Desarrollo:** Arquitectura modular, responsive design, best practices de accesibilidad.
-
-## 📂 Estructura del Proyecto
-
-```text
-ServiCarga/
-├── index.html             # Punto de entrada principal
-├── css/
-│   └── style.css          # Estilos globales con variables CSS
-├── js/
-│   ├── index.js           # Inicialización y orquestación
-│   └── modules/
-│       ├── config.js      # Configuración de categorías
-│       ├── dataLoader.js  # Carga asíncrona de datos
-│       ├── ui.js          # Gestión de interfaz de usuario
-│       ├── cards.js       # Creación de componentes de tarjetas
-│       └── utils.js       # Utilidades (formateo, escape HTML)
-├── db/
-│   ├── motocarros.json    # Datos de conductores de motocarros
-│   ├── camionetas.json    # Datos de conductores de camionetas
-│   └── tuktuk.json        # Datos de conductores de tuktuk
-├── img/
-│   └── banner.jpeg        # Imagen del banner principal
-└── README.md              # Este archivo
+**Ya está disponible en línea:**
+```
+https://brandon094.github.io/ServiCarga/
 ```
 
-## 🚀 Instalación y Uso
+Solo **abre el enlace en tu navegador** y comienza a buscar conductores. No requiere instalación.
 
-### Prerrequisitos
+## ❓ Preguntas Frecuentes
 
-- Navegador web moderno (Chrome, Firefox, Safari, Edge).
-- Servidor local para evitar restricciones CORS al cargar JSON.
+**¿Es gratis?**  
+Sí, ServiCarga es completamente gratuita.
 
-### Instalación Rápida
+**¿Está seguro contactar a los conductores?**  
+Todos los conductores están verificados por la comunidad.
 
-1. **Clonar el repositorio:**
+**¿Puedo registrar a mi conductor?**  
+Sí, usa la página de Registro para agregar a alguien.
 
-   ```bash
-   git clone https://github.com/Brandon094/ServiCarga.git
-   cd ServiCarga
-   ```
+**¿Funciona sin internet?**  
+No, necesitas conexión para acceder a la plataforma.
 
-2. **Ejecutar localmente:**
+## 🔄 Próximas Mejoras
 
-   - **Opción VS Code:** Instalar extensión "Live Server" y abrir `index.html`.
-   - **Opción Terminal:** Ejecutar `python -m http.server 8000`.
-
-     ```bash
-     python -m http.server 8000
-     ```
-
-     Luego abrir `http://localhost:8000` en tu navegador.
-
-3. **¡Listo!** La aplicación cargará automáticamente los datos y mostrará los conductores disponibles.
-
-## ⚙️ Personalización y Mantenimiento
-
-### Agregar Nuevos Conductores
-
-Edita los archivos JSON en `/db/` siguiendo este formato:
-
-```json
-{
-  "id": 1,
-  "name": "Nombre del Conductor",
-  "phone": "3001234567",
-  "vehicle": "Tipo de Vehículo"
-}
-```
-
-### Modificar Estilos
-
-Los colores y variables globales están definidos en `:root` dentro de `css/style.css`:
-
-```css
-:root {
-  --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  --text-main: #2d3436;
-  /* ... más variables */
-}
-```
-
-### Agregar Nuevas Categorías
-
-1. Actualizar `js/modules/config.js` con la nueva categoría.
-2. Crear archivo JSON correspondiente en `/db/`.
-3. Los módulos se encargarán del resto automáticamente.
-
-## 🛠️ Roadmap y Mejoras Futuras
-
-- [ ] **Buscador Avanzado:** Filtros por ubicación, precio, disponibilidad.
-- [ ] **Registro de Conductores:** Formulario para que conductores se registren.
-- [ ] **Sistema de Calificaciones:** Reviews y ratings de usuarios.
-- [ ] **PWA (Progressive Web App):** Instalación offline y notificaciones.
-- [ ] **Integración con Mapas:** Mostrar ubicación aproximada de conductores.
-- [ ] **API Backend:** Para gestión centralizada de datos.
+- Mapa de ubicaciones
+- Sistema de calificaciones
+- Filtros avanzados
+- Aplicación móvil nativa
 
 ## 🤝 Contribución
 
@@ -156,13 +88,16 @@ Los colores y variables globales están definidos en `:root` dentro de `css/styl
 
 Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles.
 
-## 🙏 Agradecimientos
+## � ¿Necesitas Ayuda?
 
-- Comunidad de Nátaga por la inspiración.
-- Font Awesome y Google Fonts por los recursos gratuitos.
-- Open source community por las herramientas utilizadas.
+**Problemas técnicos:**
+- [Reporta un problema](https://github.com/Brandon094/ServiCarga/issues)
+
+**Sugerencias:**
+- [Comparte tu idea](https://github.com/Brandon094/ServiCarga/discussions)
 
 ---
-**Desarrollado con ❤️ por [ChopCode Solutions](https://portfolio-chop-code-solutions-brando.vercel.app/)** ⭐️
 
-*Si ServiCarga te ha sido útil, ¡dale una estrella al repositorio!* 🚚✨
+**ServiCarga - Tu plataforma de transporte local** 🚚
+
+Made with ❤️ for Nátaga, Colombia
