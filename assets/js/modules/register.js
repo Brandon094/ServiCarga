@@ -1,5 +1,6 @@
 import { db } from './firebase.js';
 import { collection, addDoc } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-firestore.js";
+import { subirMultiplesImagenes } from './imageUploader.js';
 
 // DOM elements
 const form = document.getElementById('driverForm');
@@ -182,26 +183,27 @@ form.addEventListener('submit', async (e) => {
     try {
         let galeria = [];
         
-        // 4. Convertir imágenes a Base64 SOLO si hay fotos
+        // 4. Subir imágenes a Cloud Storage (NO Base64)
         if (archivos.length > 0) {
-            mostrarMensaje('📸 Procesando fotografías...', 'success');
-            galeria = await procesarFotos(archivos);
+            mostrarMensaje('📤 Subiendo fotografías a la nube...', 'success');
+            galeria = await subirMultiplesImagenes(archivos, telefonoLimpio);
+            console.log(`✅ ${galeria.length} imágenes subidas a Cloud Storage`);
         } else {
             console.log("📷 No se subieron fotos, continuando con galería vacía");
         }
 
-        // 5. Guardar en Firestore (SOLO con campo galeria)
+        // 5. Guardar URLS en Firestore (NO Base64)
         mostrarMensaje('💾 Guardando información...', 'success');
 
         const solicitud = {
             nombre: nombre,
             telefono: telefonoLimpio,
             tipoVehiculo: vehiculo,
-            galeria: galeria,              // 🔥 UN SOLO CAMPO: galeria
+            galeria: galeria,              // 🔥 Ahora contiene URLs en lugar de Base64
             estado: estado,
             fechaSolicitud: new Date().toISOString(),
             fechaRegistro: new Date(),
-            tieneFotos: galeria.length > 0  // Indicador útil para el admin
+            tieneFotos: galeria.length > 0
         };
 
         const docRef = await addDoc(collection(db, "solicitudes"), solicitud);
